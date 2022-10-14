@@ -1,0 +1,1 @@
+moduleSearchIndex = [{"l":"meester.inventory_application"}];updateSearchResults();

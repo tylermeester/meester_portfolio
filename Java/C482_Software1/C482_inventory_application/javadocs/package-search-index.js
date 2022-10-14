@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"meester.inventory_application","l":"controller"},{"m":"meester.inventory_application","l":"meester.inventory_application"},{"m":"meester.inventory_application","l":"model"}];updateSearchResults();

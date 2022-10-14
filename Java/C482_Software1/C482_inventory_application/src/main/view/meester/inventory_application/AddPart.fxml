@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPart">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="96.0" layoutY="42.0" prefHeight="45.0" prefWidth="357.0" spacing="30.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="91.0" text="Add Part" />
+            <RadioButton fx:id="addPartInHouseRB" mnemonicParsing="false" onAction="#onInHouse" text="In-House">
+               <toggleGroup>
+                  <ToggleGroup fx:id="partSourceTG" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="addPartOutsourceRB" mnemonicParsing="false" onAction="#onOutsourced" text="Outsourced" toggleGroup="$partSourceTG" />
+         </children>
+      </HBox>
+      <GridPane fx:id="addPartGrid" layoutX="96.0" layoutY="100.0" prefHeight="177.0" prefWidth="445.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="107.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="112.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="58.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="127.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="ID:" />
+            <Label text="Name:" GridPane.rowIndex="1" />
+            <Label text="Inventory:" GridPane.rowIndex="2" />
+            <Label text="Price/Cost:" GridPane.rowIndex="3" />
+            <Label text="Max:" GridPane.rowIndex="4" />
+            <Label fx:id="partMachineIdLabel" text="Machine ID:" GridPane.rowIndex="5" />
+            <TextField fx:id="partIdText" editable="false" opacity="0.7" text="ID Auto Generated" GridPane.columnIndex="1" />
+            <TextField fx:id="partNameText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="partInventoryText" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="partPriceText" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="partMaxText" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="partMachineIdText" GridPane.columnIndex="1" GridPane.rowIndex="5" /> 
+            <TextField fx:id="partMinText" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label text="Min:" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="partCompanyNameLabel" text="Company Name:" GridPane.rowIndex="6" />
+            <TextField fx:id="partCompanyNameText" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </GridPane>
+      <HBox alignment="CENTER_RIGHT" layoutX="140.0" layoutY="295.0" prefHeight="45.0" prefWidth="357.0" spacing="30.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onAddPartSave" text="Save" />
+            <Button mnemonicParsing="false" onAction="#onAddPartCancel" text="Cancel" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

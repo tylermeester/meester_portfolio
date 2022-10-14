@@ -1,0 +1,1 @@
+final_array_storage = new int[array1_size * array2_size];
