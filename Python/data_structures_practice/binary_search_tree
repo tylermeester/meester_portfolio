@@ -90,23 +90,73 @@ class BinarySearchTreeNode:
 
         return root
 
-    def min(self):
+    def find_min(self):
         if self.left is None:
             return self.data
-        return self.left.min()
+        return self.left.find_min()
 
-    def max(self):
+    def find_max(self):
         if self.right is None:
             return self.data
-        return self.right.max()
+        return self.right.find_max()
+
+    def calculate_sum(self):
+        left_sum = self.left.calculate_sum() if self.left else 0
+        right_sum = self.right.calculate_sum() if self.right else 0
+        return self.data + left_sum + right_sum
+
+    def calculate_product(self):
+        left_product = self.left.calculate_product() if self.left else 1
+        right_product = self.right.calculate_product() if self.right else 1
+        return self.data * left_product * right_product
+
+    def delete(self, val):
+        if val < self.data:
+            if self.left:
+                self.left = self.left.delete(val)
+
+        elif val > self.data:
+            if self.right:
+                self.right = self.right.delete(val)
+
+        else:
+            if self.left is None and self.right is None:
+                return None
+
+            if self.left is None:
+                return self.right
+
+            if self.right is None:
+                return self.right
+
+            #min_value = self.right.find_min()
+            #self.data = min_value
+            #self.right = self.right.delete(min_value)
+
+            max_value = self.left.find_max()
+            self.data = max_value
+            self.left = self.left.delete(max_value)
+
+        return self
 
 
 if __name__ == '__main__':
 
     numbers = [17, 4, 1, 20, 9, 23, 18, 34]
     numbers_tree = BinarySearchTreeNode.build_tree(numbers)
+
+    countries = ["India", "Pakistan", "Germany",
+                 "USA", "China", "India", "UK", "USA", "Canada"]
+    countries_tree = BinarySearchTreeNode.build_tree(countries)
+
     print(numbers_tree.in_order_traversal())
-    print(numbers_tree.pre_order_traversal())
-    print(numbers_tree.post_order_traversal())
-    print(numbers_tree.search(1))
-    print(numbers_tree.max())
+    print(numbers_tree.search(20))
+    print(numbers_tree.find_min())
+
+    print(countries_tree.in_order_traversal())
+    print(countries_tree.find_min())
+
+    print(numbers_tree.calculate_sum())
+
+    numbers_tree.delete(1)
+    print(numbers_tree.in_order_traversal())
