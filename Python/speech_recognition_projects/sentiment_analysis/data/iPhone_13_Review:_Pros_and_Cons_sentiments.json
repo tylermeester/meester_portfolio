@@ -1,0 +1,490 @@
+[
+    {
+        "text": "With the exception of a smaller notch, the iPhone 13 doesn't seem very new at first glance, but when you start using this flagship, you start to appreciate a bunch of welcome upgrades.",
+        "start": 237,
+        "end": 8922,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9713384509086609,
+        "speaker": null
+    },
+    {
+        "text": "The new iPhone's display is brighter than before, the battery life is longer, and Apple has improved an already great camera system with better sensors and features like Cinematic Mode that make you feel feel like a pro even on a nonpro phone.",
+        "start": 9042,
+        "end": 21337,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9833171963691711,
+        "speaker": null
+    },
+    {
+        "text": "Still, there's some flaws here.",
+        "start": 21475,
+        "end": 23122,
+        "sentiment": "NEGATIVE",
+        "confidence": 0.6091493368148804,
+        "speaker": null
+    },
+    {
+        "text": "Here's the pros and cons in my iPhone 13 review.",
+        "start": 23230,
+        "end": 26675,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7920171022415161,
+        "speaker": null
+    },
+    {
+        "text": "There's really two notable design changes for the iPhone 13.",
+        "start": 27187,
+        "end": 29982,
+        "sentiment": "POSITIVE",
+        "confidence": 0.8534098267555237,
+        "speaker": null
+    },
+    {
+        "text": "First, the rear cameras are now arranged diagonally instead of vertically, and the notch is now 20% smaller.",
+        "start": 30072,
+        "end": 35622,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7851950526237488,
+        "speaker": null
+    },
+    {
+        "text": "I appreciated the Mini notch when using apps with a white background, such as Safari and Gmail however, it still swoops down.",
+        "start": 35742,
+        "end": 42577,
+        "sentiment": "POSITIVE",
+        "confidence": 0.7677359580993652,
+        "speaker": null
+    },
+    {
+        "text": "The button placement is slightly different on the iPhone 13 versus iPhone Twelve, such as the power button being lower.",
+        "start": 42745,
+        "end": 48427,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8457890152931213,
+        "speaker": null
+    },
+    {
+        "text": "Otherwise, you get the same thing as before ceramic shield display up front, durable glass back, and flat edges.",
+        "start": 48520,
+        "end": 54642,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.757907509803772,
+        "speaker": null
+    },
+    {
+        "text": "Unfortunately, the iPhone 13 doesn't offer touch ID, an upgrade many of us would have appreciated.",
+        "start": 54777,
+        "end": 59892,
+        "sentiment": "NEGATIVE",
+        "confidence": 0.47886377573013306,
+        "speaker": null
+    },
+    {
+        "text": "Since face ID doesn't work well with MAS.",
+        "start": 59952,
+        "end": 62457,
+        "sentiment": "NEGATIVE",
+        "confidence": 0.8173236846923828,
+        "speaker": null
+    },
+    {
+        "text": "A sensor embedded in the power button like the iPad Mini Six would have been just fine.",
+        "start": 62622,
+        "end": 67162,
+        "sentiment": "POSITIVE",
+        "confidence": 0.8128206133842468,
+        "speaker": null
+    },
+    {
+        "text": "The bad news is that the iPhone 13 doesn't offer the 120 Hz refresh rate of the iPhone 13 Pro, which would have been nice for smoother scrolling and overall performance.",
+        "start": 67300,
+        "end": 76197,
+        "sentiment": "NEGATIVE",
+        "confidence": 0.4499838650226593,
+        "speaker": null
+    },
+    {
+        "text": "But you do get a brighter display than the iPhone Twelve, which helps most when you're outdoors.",
+        "start": 76317,
+        "end": 81477,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9110584259033203,
+        "speaker": null
+    },
+    {
+        "text": "We measured 795 nets of brightness, compared to 569 for last year's iPhone and 702 for the Galaxy S 21.",
+        "start": 81582,
+        "end": 89587,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.5288667678833008,
+        "speaker": null
+    },
+    {
+        "text": "The overall display quality continues to be stellar, with great colors, contrast and viewing angles.",
+        "start": 89725,
+        "end": 95562,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9815881252288818,
+        "speaker": null
+    },
+    {
+        "text": "When watching the trailer for The Matrix Resurrections, I could make out individual hairs on Neo's beard as he stared up into the sun, and I could almost feel the punch he delivered to the new Morpheus.",
+        "start": 95712,
+        "end": 106562,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7407408356666565,
+        "speaker": null
+    },
+    {
+        "text": "The iPhone 13s cameras get a number of key upgrades.",
+        "start": 106987,
+        "end": 109962,
+        "sentiment": "POSITIVE",
+        "confidence": 0.8427090048789978,
+        "speaker": null
+    },
+    {
+        "text": "This includes a main camera that lets in more light, an ultra wide camera that captures more scene, and an improved night mode.",
+        "start": 110037,
+        "end": 116742,
+        "sentiment": "POSITIVE",
+        "confidence": 0.78851318359375,
+        "speaker": null
+    },
+    {
+        "text": "The overall image quality was top notch in my testing, complete with compelling portrait shots, plenty of detail, and colorful, ultra wide landscapes.",
+        "start": 116877,
+        "end": 125412,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9683921337127686,
+        "speaker": null
+    },
+    {
+        "text": "If you want more control, you'll appreciate the Photographic Styles feature.",
+        "start": 125562,
+        "end": 129087,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.6491404175758362,
+        "speaker": null
+    },
+    {
+        "text": "You can switch between multiple options in the camera app, including standard vibrant, rich, contrast, warm and cool.",
+        "start": 129162,
+        "end": 136102,
+        "sentiment": "POSITIVE",
+        "confidence": 0.6676363945007324,
+        "speaker": null
+    },
+    {
+        "text": "I put the iPhone 13s cameras up against Samsung's Best and the iPhone Twelve, and the new iPhone fared quite well.",
+        "start": 136270,
+        "end": 142252,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9328890442848206,
+        "speaker": null
+    },
+    {
+        "text": "In this photo, taken at a reservoir, you can see how superior the iPhone Thirteen's camera is compared to the Galaxy S 21 ultra.",
+        "start": 142345,
+        "end": 149187,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9107827544212341,
+        "speaker": null
+    },
+    {
+        "text": "The water looks more translucent, and the iPhone 13 does a better job, rendering the shadows around the wood.",
+        "start": 149262,
+        "end": 154647,
+        "sentiment": "POSITIVE",
+        "confidence": 0.929684042930603,
+        "speaker": null
+    },
+    {
+        "text": "The iPhone 13 also delivered a better looking shot of these Halloween decorations.",
+        "start": 154767,
+        "end": 158922,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9408524036407471,
+        "speaker": null
+    },
+    {
+        "text": "The sign looks more vibrant, as do the surrounding reallife pumpkins.",
+        "start": 159042,
+        "end": 162732,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9449918866157532,
+        "speaker": null
+    },
+    {
+        "text": "The S 21 Ultras pick is pretty sharp, but looks kind of flat in many shooting situations.",
+        "start": 162822,
+        "end": 168327,
+        "sentiment": "POSITIVE",
+        "confidence": 0.54048091173172,
+        "speaker": null
+    },
+    {
+        "text": "The iPhone 13 was on a par with the iPhone twelve, but I did notice a marked improvement in night mode.",
+        "start": 168357,
+        "end": 173787,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9257956147193909,
+        "speaker": null
+    },
+    {
+        "text": "The iPhone XII captures a brighter pink and the hydrangea flowers in the dark, and this candle shot looks crisper in very low light.",
+        "start": 173862,
+        "end": 181087,
+        "sentiment": "POSITIVE",
+        "confidence": 0.8578181266784668,
+        "speaker": null
+    },
+    {
+        "text": "With this selfie, the iPhone 13 delivers colors that are a bit too saturated, while the S 21 shot looks a bit hazy and washed out, so it's kind of a draw for me.",
+        "start": 181225,
+        "end": 191075,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.47361424565315247,
+        "speaker": null
+    },
+    {
+        "text": "The iPhone 13 is the rare smartphone that can make you feel like a pro as you shoot videos, and that's thanks to a new feature called Cinematic Mode.",
+        "start": 191737,
+        "end": 198792,
+        "sentiment": "POSITIVE",
+        "confidence": 0.961600661277771,
+        "speaker": null
+    },
+    {
+        "text": "The effect brings depth of field to your footage and automatically changes the focus to various subjects.",
+        "start": 198852,
+        "end": 203862,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7180829644203186,
+        "speaker": null
+    },
+    {
+        "text": "It's almost like magic when recording a couple of dogs.",
+        "start": 203937,
+        "end": 207477,
+        "sentiment": "POSITIVE",
+        "confidence": 0.8109515905380249,
+        "speaker": null
+    },
+    {
+        "text": "I was really impressed when the iPhone 13 placed the focus on the pup that was closest to me at first.",
+        "start": 207507,
+        "end": 212392,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9806657433509827,
+        "speaker": null
+    },
+    {
+        "text": "You can also change the focus point manually by tapping the screen.",
+        "start": 212515,
+        "end": 216067,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8885437250137329,
+        "speaker": null
+    },
+    {
+        "text": "The Boca effect on the background is also pretty convincing and immersive, as you can see in this footage of me walking along a trail, and in this clip of me trying to sneak a cookie, the iPhone 13 did a fairly good job deciding when to focus on me versus the plate.",
+        "start": 216190,
+        "end": 230862,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9642725586891174,
+        "speaker": null
+    },
+    {
+        "text": "Cinematic Mode isn't perfect, as the iPhone 13 sometimes took a second to recognize fast removing subjects, and you can't do Cinematic Mode in 4K, but overall it's a cool feature.",
+        "start": 231012,
+        "end": 241187,
+        "sentiment": "POSITIVE",
+        "confidence": 0.7310071587562561,
+        "speaker": null
+    },
+    {
+        "text": "The video quality from the iPhone Xx is the best I've seen from a phone, with improved noise reduction and better dynamic range.",
+        "start": 241612,
+        "end": 248637,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9833720326423645,
+        "speaker": null
+    },
+    {
+        "text": "This Dolby Vision HDR footage of waves lapping up against the sand is almost mesmerizing, and this sweeping landscape of the Battle of Mammoth site delivers a crystal clear blue sky and lots of details in the clouds and surrounding trees.",
+        "start": 248787,
+        "end": 262562,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9627220034599304,
+        "speaker": null
+    },
+    {
+        "text": "The A 15 Bionic inside the iPhone 13 doesn't offer a dramatic performance gain over the iPhone twelve, but it's still the fastest chip in any phone in a game like Dinch and Impact.",
+        "start": 263437,
+        "end": 272742,
+        "sentiment": "POSITIVE",
+        "confidence": 0.8447844982147217,
+        "speaker": null
+    },
+    {
+        "text": "The animations and effects felt console quality.",
+        "start": 272802,
+        "end": 275272,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.507619321346283,
+        "speaker": null
+    },
+    {
+        "text": "As I climbed mountains, swim through water and tried to battle enemies, I was equally impressed by the seat gap, which instantly identified plants when I appointed the camera around a nearby park.",
+        "start": 275380,
+        "end": 286212,
+        "sentiment": "POSITIVE",
+        "confidence": 0.8313316106796265,
+        "speaker": null
+    },
+    {
+        "text": "The iPhone 13 blows away Android phones on benchmarks like Geekbench Five and in graphics tests on three D Mark Wildlife, the new iPhone hit 55 nine frames per second.",
+        "start": 286362,
+        "end": 298057,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9047861695289612,
+        "speaker": null
+    },
+    {
+        "text": "That's a bit higher than the iPhone twelve at 51 FPS, but the Galaxy S 21 Ultra mustered only 33.",
+        "start": 298210,
+        "end": 305722,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.49370983242988586,
+        "speaker": null
+    },
+    {
+        "text": "One of the best iPhone 13 upgrades is longer battery life.",
+        "start": 305905,
+        "end": 308812,
+        "sentiment": "POSITIVE",
+        "confidence": 0.978162944316864,
+        "speaker": null
+    },
+    {
+        "text": "Thanks to a bigger battery, more efficient display and the A 15 Bionic chip.",
+        "start": 308875,
+        "end": 313032,
+        "sentiment": "POSITIVE",
+        "confidence": 0.920628547668457,
+        "speaker": null
+    },
+    {
+        "text": "On the timeSky battery test, which involves continuous 5G web surfing, the iPhone 13 endured for 10 hours and 33 minutes.",
+        "start": 313122,
+        "end": 320422,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.6625527143478394,
+        "speaker": null
+    },
+    {
+        "text": "That's more than 2 hours longer than the a 25 time from the iPhone Twelve.",
+        "start": 320530,
+        "end": 325057,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.6128268241882324,
+        "speaker": null
+    },
+    {
+        "text": "The best result we saw from the Galaxy S 21 was 953.",
+        "start": 325210,
+        "end": 329257,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9443984627723694,
+        "speaker": null
+    },
+    {
+        "text": "Unfortunately, the iPhone 13 offers the same lame charging speeds as before.",
+        "start": 329410,
+        "end": 333607,
+        "sentiment": "NEGATIVE",
+        "confidence": 0.7276897430419922,
+        "speaker": null
+    },
+    {
+        "text": "The new iPhone got to 51% in 30 minutes with Apple's optional 20 watt charger.",
+        "start": 333760,
+        "end": 339957,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9375945925712585,
+        "speaker": null
+    },
+    {
+        "text": "Other phones are much speedier.",
+        "start": 340122,
+        "end": 342147,
+        "sentiment": "POSITIVE",
+        "confidence": 0.6014126539230347,
+        "speaker": null
+    },
+    {
+        "text": "The iPhone's 15 watt magsape charger is even slower, but some may find it more convenient because you don't have to deal with lightning.",
+        "start": 342342,
+        "end": 350607,
+        "sentiment": "POSITIVE",
+        "confidence": 0.5755123496055603,
+        "speaker": null
+    },
+    {
+        "text": "The iPhone 13 doesn't quite well like the iPhone 13 Pro and Pro Max, which offer 120 Hz display, telephoto, zoom and macrophotography.",
+        "start": 350772,
+        "end": 360027,
+        "sentiment": "NEGATIVE",
+        "confidence": 0.6443150043487549,
+        "speaker": null
+    },
+    {
+        "text": "But at 799, this is the best new iPhone for the money.",
+        "start": 360132,
+        "end": 363637,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9666377305984497,
+        "speaker": null
+    },
+    {
+        "text": "The cameras are simply the best you'll find in this class, and I especially like the longer battery life.",
+        "start": 363775,
+        "end": 369172,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9798893332481384,
+        "speaker": null
+    },
+    {
+        "text": "I wouldn't recommend that iPhone Twelve owners upgrade to the new iPhone, but the iPhone 13 could be worth it if you own an iPhone Eleven or older device.",
+        "start": 369280,
+        "end": 378312,
+        "sentiment": "POSITIVE",
+        "confidence": 0.7415266633033752,
+        "speaker": null
+    },
+    {
+        "text": "I'd like to see Apple offer faster charging next time around, and the lack of touch ID is a bummer.",
+        "start": 378462,
+        "end": 384057,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.40531402826309204,
+        "speaker": null
+    },
+    {
+        "text": "But overall the iPhone 13 is a fantastic phone for Tom's Guide, this is Mark Spoonhower.",
+        "start": 384147,
+        "end": 390962,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9843804836273193,
+        "speaker": null
+    },
+    {
+        "text": "Bye.",
+        "start": 394312,
+        "end": 394587,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.5137447118759155,
+        "speaker": null
+    }
+]

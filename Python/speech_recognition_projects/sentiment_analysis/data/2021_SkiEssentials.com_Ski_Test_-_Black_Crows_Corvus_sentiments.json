@@ -1,0 +1,338 @@
+[
+    {
+        "text": "Hi, skiers.",
+        "start": 8112,
+        "end": 8682,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.6784105896949768,
+        "speaker": null
+    },
+    {
+        "text": "I'm Jeff from Ski Essentials.com.",
+        "start": 8697,
+        "end": 10507,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8617401123046875,
+        "speaker": null
+    },
+    {
+        "text": "Welcome to our 2021 ski test.",
+        "start": 10585,
+        "end": 12697,
+        "sentiment": "POSITIVE",
+        "confidence": 0.7473940253257751,
+        "speaker": null
+    },
+    {
+        "text": "Today we're talking about the Black Crows Corvus.",
+        "start": 12805,
+        "end": 15897,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.9347348809242249,
+        "speaker": null
+    },
+    {
+        "text": "This is an awesome ski from Black Crows.",
+        "start": 16092,
+        "end": 18537,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9782462120056152,
+        "speaker": null
+    },
+    {
+        "text": "Pretty specific application and a pretty unique ski, too.",
+        "start": 18687,
+        "end": 22702,
+        "sentiment": "POSITIVE",
+        "confidence": 0.8871946334838867,
+        "speaker": null
+    },
+    {
+        "text": "And we'll talk about why that is.",
+        "start": 22870,
+        "end": 25267,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8375961780548096,
+        "speaker": null
+    },
+    {
+        "text": "So, first of all, shape, the Corvus is pretty much flat underfoot.",
+        "start": 25390,
+        "end": 31602,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7550836205482483,
+        "speaker": null
+    },
+    {
+        "text": "So from one hand to my other hand, that whole section of the ski is basically flat.",
+        "start": 31707,
+        "end": 38322,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7790886759757996,
+        "speaker": null
+    },
+    {
+        "text": "It's not even really reverse camber underfoot.",
+        "start": 38517,
+        "end": 41697,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7793411016464233,
+        "speaker": null
+    },
+    {
+        "text": "It's just flat.",
+        "start": 41742,
+        "end": 42702,
+        "sentiment": "NEGATIVE",
+        "confidence": 0.588807225227356,
+        "speaker": null
+    },
+    {
+        "text": "And then you get rocker starting about where my hands are.",
+        "start": 42807,
+        "end": 45817,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8445060849189758,
+        "speaker": null
+    },
+    {
+        "text": "And the rest of it is really lowrise rocker, 107 underfoot in this key with a 20 1 meter turn radius, and you get two sheets of metal.",
+        "start": 45865,
+        "end": 56837,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8387613296508789,
+        "speaker": null
+    },
+    {
+        "text": "So when you talk about, you know, performance and application for the Corvette, like I said, it's fairly specific application.",
+        "start": 57262,
+        "end": 64925,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8690527081489563,
+        "speaker": null
+    },
+    {
+        "text": "I really think about this as kind of like a big mountain competition ski.",
+        "start": 65587,
+        "end": 71012,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7114596366882324,
+        "speaker": null
+    },
+    {
+        "text": "Not that you have to be competing to enjoy it, but it prefers that style of skiing.",
+        "start": 71662,
+        "end": 78717,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.6573173403739929,
+        "speaker": null
+    },
+    {
+        "text": "So think about big open train, you know, big mountains, western mountains, you know, Chamonix.",
+        "start": 78852,
+        "end": 86982,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7924669981002808,
+        "speaker": null
+    },
+    {
+        "text": "These things are born in Chamonix.",
+        "start": 87072,
+        "end": 89232,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7248624563217163,
+        "speaker": null
+    },
+    {
+        "text": "So if you think about big gnarly descents in Chamonis or places like that, you need a powerful ski, especially if you want to ski those lines fast.",
+        "start": 89397,
+        "end": 100250,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7490593194961548,
+        "speaker": null
+    },
+    {
+        "text": "If you watch the Free Ride World Tour, those guys ski really, really fast.",
+        "start": 100912,
+        "end": 105337,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.5501425862312317,
+        "speaker": null
+    },
+    {
+        "text": "And a ski like this can do that and can do it through choppy, variable terrain, soft snow, whatever you point it towards.",
+        "start": 105475,
+        "end": 114697,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.5987691879272461,
+        "speaker": null
+    },
+    {
+        "text": "The Corvus is going to stay stable and quiet and composed, which is really, really cool.",
+        "start": 114805,
+        "end": 120967,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9828372001647949,
+        "speaker": null
+    },
+    {
+        "text": "There is some Pivoting ability to it because it's flat and reverse camber.",
+        "start": 121165,
+        "end": 126147,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7429443001747131,
+        "speaker": null
+    },
+    {
+        "text": "So if you're not achieving a high edge angle, you can get the ski to pivot, but it's certainly not a playful ski.",
+        "start": 126192,
+        "end": 133562,
+        "sentiment": "NEGATIVE",
+        "confidence": 0.5074082612991333,
+        "speaker": null
+    },
+    {
+        "text": "This is the type of ski that you can pretty much put an expert only tag on it, or at least an advanced or even an upper level advanced skier.",
+        "start": 134212,
+        "end": 145037,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.5918961763381958,
+        "speaker": null
+    },
+    {
+        "text": "It's going to be pretty tiring, pretty demanding, especially for somebody who doesn't want to ski fast, direct lines down the mountain.",
+        "start": 145462,
+        "end": 155762,
+        "sentiment": "NEGATIVE",
+        "confidence": 0.7944311499595642,
+        "speaker": null
+    },
+    {
+        "text": "You know, if you're looking for a more playful, maneuverable, powder ski, there's plenty of other stuff in Black Crow's line that would fit that role a little better.",
+        "start": 156337,
+        "end": 165307,
+        "sentiment": "POSITIVE",
+        "confidence": 0.5155991911888123,
+        "speaker": null
+    },
+    {
+        "text": "But if you're looking to go fast through choppy terrain in big mountain zones, there's not much better than the Black Crow's Corvus.",
+        "start": 165460,
+        "end": 175947,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.4803987741470337,
+        "speaker": null
+    },
+    {
+        "text": "And this ski, this is one of the iconic Black Crows skis.",
+        "start": 176142,
+        "end": 179847,
+        "sentiment": "POSITIVE",
+        "confidence": 0.5847001671791077,
+        "speaker": null
+    },
+    {
+        "text": "It's been around for a while.",
+        "start": 179892,
+        "end": 181387,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7689074277877808,
+        "speaker": null
+    },
+    {
+        "text": "It's always had this attitude.",
+        "start": 181525,
+        "end": 183642,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.6031902432441711,
+        "speaker": null
+    },
+    {
+        "text": "And it's really cool that they make a ski like this, because there's not a ton of them out there with this much stability and this much power and the ability to just tank through whatever you point it towards.",
+        "start": 183777,
+        "end": 197900,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9494255781173706,
+        "speaker": null
+    },
+    {
+        "text": "Definitely let us know if you have any questions about it, if there's anything out there that you want us to compare it to.",
+        "start": 199162,
+        "end": 204187,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8492216467857361,
+        "speaker": null
+    },
+    {
+        "text": "You can also head on over to ski Essentials and read more feedback from different people.",
+        "start": 204325,
+        "end": 208042,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8302274346351624,
+        "speaker": null
+    },
+    {
+        "text": "Read more about it.",
+        "start": 208090,
+        "end": 209182,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8444311618804932,
+        "speaker": null
+    },
+    {
+        "text": "Ask us a question there.",
+        "start": 209260,
+        "end": 210442,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7751031517982483,
+        "speaker": null
+    },
+    {
+        "text": "Maybe just get in touch with us directly, whatever you want to do.",
+        "start": 210490,
+        "end": 213877,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.8428295850753784,
+        "speaker": null
+    },
+    {
+        "text": "We're happy to chat more about these because they're pretty special, unique skis.",
+        "start": 213895,
+        "end": 218462,
+        "sentiment": "POSITIVE",
+        "confidence": 0.9845709800720215,
+        "speaker": null
+    },
+    {
+        "text": "So.",
+        "start": 218812,
+        "end": 219127,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.6170274615287781,
+        "speaker": null
+    },
+    {
+        "text": "Yeah, that's the Black Rose Corvus for 2021.",
+        "start": 219145,
+        "end": 221722,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7647270560264587,
+        "speaker": null
+    },
+    {
+        "text": "And we'll see you guys on the slopes.",
+        "start": 221830,
+        "end": 223862,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.7404569983482361,
+        "speaker": null
+    },
+    {
+        "text": "You.",
+        "start": 225862,
+        "end": 226125,
+        "sentiment": "NEUTRAL",
+        "confidence": 0.5462568402290344,
+        "speaker": null
+    }
+]
