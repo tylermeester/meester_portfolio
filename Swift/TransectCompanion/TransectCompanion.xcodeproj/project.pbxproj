@@ -1,0 +1,1088 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FE21DF9C29F1AD7C003AA500 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21DF9229F1AD7C003AA500 /* ContentView.swift */; };
+		FE21DF9D29F1AD7C003AA500 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21DF9329F1AD7C003AA500 /* CompassView.swift */; };
+		FE21DF9E29F1AD7C003AA500 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21DF9429F1AD7C003AA500 /* MainView.swift */; };
+		FE21DF9F29F1AD7C003AA500 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = FE21DF9529F1AD7C003AA500 /* Preview Content */; };
+		FE21DFA029F1AD7C003AA500 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21DF9629F1AD7C003AA500 /* SettingsView.swift */; };
+		FE21DFA129F1AD7C003AA500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE21DF9729F1AD7C003AA500 /* Assets.xcassets */; };
+		FE21DFA229F1AD7C003AA500 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21DF9829F1AD7C003AA500 /* LocationView.swift */; };
+		FE21DFA329F1AD7C003AA500 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21DF9929F1AD7C003AA500 /* Settings.swift */; };
+		FE21DFA429F1AD7C003AA500 /* TransectCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21DF9A29F1AD7C003AA500 /* TransectCompanionApp.swift */; };
+		FE21DFA529F1AD7C003AA500 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21DF9B29F1AD7C003AA500 /* LocationManager.swift */; };
+		FE21DFA829F1AE06003AA500 /* UTMConversion in Frameworks */ = {isa = PBXBuildFile; productRef = FE21DFA729F1AE06003AA500 /* UTMConversion */; };
+		FE21DFAB29F1AEFE003AA500 /* UTMConversion in Frameworks */ = {isa = PBXBuildFile; productRef = FE21DFAA29F1AEFE003AA500 /* UTMConversion */; };
+		FEEA823B29F1AB5100530ABE /* TransectCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEA823A29F1AB5100530ABE /* TransectCompanionApp.swift */; };
+		FEEA823D29F1AB5100530ABE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEA823C29F1AB5100530ABE /* ContentView.swift */; };
+		FEEA823F29F1AB5300530ABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEEA823E29F1AB5300530ABE /* Assets.xcassets */; };
+		FEEA824229F1AB5300530ABE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEEA824129F1AB5300530ABE /* Preview Assets.xcassets */; };
+		FEEA824C29F1AB5300530ABE /* TransectCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEA824B29F1AB5300530ABE /* TransectCompanionTests.swift */; };
+		FEEA825629F1AB5300530ABE /* TransectCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEA825529F1AB5300530ABE /* TransectCompanionUITests.swift */; };
+		FEEA825829F1AB5300530ABE /* TransectCompanionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEA825729F1AB5300530ABE /* TransectCompanionUITestsLaunchTests.swift */; };
+		FEEA825E29F1AB5300530ABE /* TransectCompanion Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FEEA825D29F1AB5300530ABE /* TransectCompanion Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FEEA827429F1AB5600530ABE /* TransectCompanion_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEA827329F1AB5600530ABE /* TransectCompanion_Watch_AppTests.swift */; };
+		FEEA827E29F1AB5600530ABE /* TransectCompanion_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEA827D29F1AB5600530ABE /* TransectCompanion_Watch_AppUITests.swift */; };
+		FEEA828029F1AB5600530ABE /* TransectCompanion_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEA827F29F1AB5600530ABE /* TransectCompanion_Watch_AppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FEEA824829F1AB5300530ABE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEEA822F29F1AB5000530ABE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEEA823629F1AB5100530ABE;
+			remoteInfo = TransectCompanion;
+		};
+		FEEA825229F1AB5300530ABE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEEA822F29F1AB5000530ABE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEEA823629F1AB5100530ABE;
+			remoteInfo = TransectCompanion;
+		};
+		FEEA825F29F1AB5300530ABE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEEA822F29F1AB5000530ABE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEEA825C29F1AB5300530ABE;
+			remoteInfo = "TransectCompanion Watch App";
+		};
+		FEEA827029F1AB5600530ABE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEEA822F29F1AB5000530ABE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEEA825C29F1AB5300530ABE;
+			remoteInfo = "TransectCompanion Watch App";
+		};
+		FEEA827A29F1AB5600530ABE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEEA822F29F1AB5000530ABE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEEA825C29F1AB5300530ABE;
+			remoteInfo = "TransectCompanion Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FEEA828629F1AB5600530ABE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				FEEA825E29F1AB5300530ABE /* TransectCompanion Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FE21DF9229F1AD7C003AA500 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FE21DF9329F1AD7C003AA500 /* CompassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
+		FE21DF9429F1AD7C003AA500 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FE21DF9529F1AD7C003AA500 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
+		FE21DF9629F1AD7C003AA500 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FE21DF9729F1AD7C003AA500 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE21DF9829F1AD7C003AA500 /* LocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		FE21DF9929F1AD7C003AA500 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		FE21DF9A29F1AD7C003AA500 /* TransectCompanionApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransectCompanionApp.swift; sourceTree = "<group>"; };
+		FE21DF9B29F1AD7C003AA500 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		FEEA823729F1AB5100530ABE /* TransectCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransectCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEEA823A29F1AB5100530ABE /* TransectCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransectCompanionApp.swift; sourceTree = "<group>"; };
+		FEEA823C29F1AB5100530ABE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FEEA823E29F1AB5300530ABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FEEA824129F1AB5300530ABE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FEEA824729F1AB5300530ABE /* TransectCompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransectCompanionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEEA824B29F1AB5300530ABE /* TransectCompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransectCompanionTests.swift; sourceTree = "<group>"; };
+		FEEA825129F1AB5300530ABE /* TransectCompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransectCompanionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEEA825529F1AB5300530ABE /* TransectCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransectCompanionUITests.swift; sourceTree = "<group>"; };
+		FEEA825729F1AB5300530ABE /* TransectCompanionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransectCompanionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FEEA825D29F1AB5300530ABE /* TransectCompanion Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TransectCompanion Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEEA826F29F1AB5600530ABE /* TransectCompanion Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TransectCompanion Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEEA827329F1AB5600530ABE /* TransectCompanion_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransectCompanion_Watch_AppTests.swift; sourceTree = "<group>"; };
+		FEEA827929F1AB5600530ABE /* TransectCompanion Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TransectCompanion Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEEA827D29F1AB5600530ABE /* TransectCompanion_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransectCompanion_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		FEEA827F29F1AB5600530ABE /* TransectCompanion_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransectCompanion_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FEEA823429F1AB5100530ABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE21DFA829F1AE06003AA500 /* UTMConversion in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA824429F1AB5300530ABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA824E29F1AB5300530ABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA825A29F1AB5300530ABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE21DFAB29F1AEFE003AA500 /* UTMConversion in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA826C29F1AB5600530ABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA827629F1AB5600530ABE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FE21DFA929F1AEFE003AA500 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FEEA822E29F1AB5000530ABE = {
+			isa = PBXGroup;
+			children = (
+				FEEA823929F1AB5100530ABE /* TransectCompanion */,
+				FEEA824A29F1AB5300530ABE /* TransectCompanionTests */,
+				FEEA825429F1AB5300530ABE /* TransectCompanionUITests */,
+				FEEA826129F1AB5300530ABE /* TransectCompanion Watch App */,
+				FEEA827229F1AB5600530ABE /* TransectCompanion Watch AppTests */,
+				FEEA827C29F1AB5600530ABE /* TransectCompanion Watch AppUITests */,
+				FEEA823829F1AB5100530ABE /* Products */,
+				FE21DFA929F1AEFE003AA500 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FEEA823829F1AB5100530ABE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEEA823729F1AB5100530ABE /* TransectCompanion.app */,
+				FEEA824729F1AB5300530ABE /* TransectCompanionTests.xctest */,
+				FEEA825129F1AB5300530ABE /* TransectCompanionUITests.xctest */,
+				FEEA825D29F1AB5300530ABE /* TransectCompanion Watch App.app */,
+				FEEA826F29F1AB5600530ABE /* TransectCompanion Watch AppTests.xctest */,
+				FEEA827929F1AB5600530ABE /* TransectCompanion Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEEA823929F1AB5100530ABE /* TransectCompanion */ = {
+			isa = PBXGroup;
+			children = (
+				FEEA823A29F1AB5100530ABE /* TransectCompanionApp.swift */,
+				FEEA823C29F1AB5100530ABE /* ContentView.swift */,
+				FEEA823E29F1AB5300530ABE /* Assets.xcassets */,
+				FEEA824029F1AB5300530ABE /* Preview Content */,
+			);
+			path = TransectCompanion;
+			sourceTree = "<group>";
+		};
+		FEEA824029F1AB5300530ABE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FEEA824129F1AB5300530ABE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FEEA824A29F1AB5300530ABE /* TransectCompanionTests */ = {
+			isa = PBXGroup;
+			children = (
+				FEEA824B29F1AB5300530ABE /* TransectCompanionTests.swift */,
+			);
+			path = TransectCompanionTests;
+			sourceTree = "<group>";
+		};
+		FEEA825429F1AB5300530ABE /* TransectCompanionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FEEA825529F1AB5300530ABE /* TransectCompanionUITests.swift */,
+				FEEA825729F1AB5300530ABE /* TransectCompanionUITestsLaunchTests.swift */,
+			);
+			path = TransectCompanionUITests;
+			sourceTree = "<group>";
+		};
+		FEEA826129F1AB5300530ABE /* TransectCompanion Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				FE21DF9729F1AD7C003AA500 /* Assets.xcassets */,
+				FE21DF9329F1AD7C003AA500 /* CompassView.swift */,
+				FE21DF9229F1AD7C003AA500 /* ContentView.swift */,
+				FE21DF9B29F1AD7C003AA500 /* LocationManager.swift */,
+				FE21DF9829F1AD7C003AA500 /* LocationView.swift */,
+				FE21DF9429F1AD7C003AA500 /* MainView.swift */,
+				FE21DF9529F1AD7C003AA500 /* Preview Content */,
+				FE21DF9929F1AD7C003AA500 /* Settings.swift */,
+				FE21DF9629F1AD7C003AA500 /* SettingsView.swift */,
+				FE21DF9A29F1AD7C003AA500 /* TransectCompanionApp.swift */,
+			);
+			path = "TransectCompanion Watch App";
+			sourceTree = "<group>";
+		};
+		FEEA827229F1AB5600530ABE /* TransectCompanion Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				FEEA827329F1AB5600530ABE /* TransectCompanion_Watch_AppTests.swift */,
+			);
+			path = "TransectCompanion Watch AppTests";
+			sourceTree = "<group>";
+		};
+		FEEA827C29F1AB5600530ABE /* TransectCompanion Watch AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FEEA827D29F1AB5600530ABE /* TransectCompanion_Watch_AppUITests.swift */,
+				FEEA827F29F1AB5600530ABE /* TransectCompanion_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = "TransectCompanion Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FEEA823629F1AB5100530ABE /* TransectCompanion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEEA828729F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanion" */;
+			buildPhases = (
+				FEEA823329F1AB5100530ABE /* Sources */,
+				FEEA823429F1AB5100530ABE /* Frameworks */,
+				FEEA823529F1AB5100530ABE /* Resources */,
+				FEEA828629F1AB5600530ABE /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEEA826029F1AB5300530ABE /* PBXTargetDependency */,
+			);
+			name = TransectCompanion;
+			packageProductDependencies = (
+				FE21DFA729F1AE06003AA500 /* UTMConversion */,
+			);
+			productName = TransectCompanion;
+			productReference = FEEA823729F1AB5100530ABE /* TransectCompanion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FEEA824629F1AB5300530ABE /* TransectCompanionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEEA828A29F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanionTests" */;
+			buildPhases = (
+				FEEA824329F1AB5300530ABE /* Sources */,
+				FEEA824429F1AB5300530ABE /* Frameworks */,
+				FEEA824529F1AB5300530ABE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEEA824929F1AB5300530ABE /* PBXTargetDependency */,
+			);
+			name = TransectCompanionTests;
+			productName = TransectCompanionTests;
+			productReference = FEEA824729F1AB5300530ABE /* TransectCompanionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FEEA825029F1AB5300530ABE /* TransectCompanionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEEA828D29F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanionUITests" */;
+			buildPhases = (
+				FEEA824D29F1AB5300530ABE /* Sources */,
+				FEEA824E29F1AB5300530ABE /* Frameworks */,
+				FEEA824F29F1AB5300530ABE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEEA825329F1AB5300530ABE /* PBXTargetDependency */,
+			);
+			name = TransectCompanionUITests;
+			productName = TransectCompanionUITests;
+			productReference = FEEA825129F1AB5300530ABE /* TransectCompanionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		FEEA825C29F1AB5300530ABE /* TransectCompanion Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEEA828329F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanion Watch App" */;
+			buildPhases = (
+				FEEA825929F1AB5300530ABE /* Sources */,
+				FEEA825A29F1AB5300530ABE /* Frameworks */,
+				FEEA825B29F1AB5300530ABE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TransectCompanion Watch App";
+			packageProductDependencies = (
+				FE21DFAA29F1AEFE003AA500 /* UTMConversion */,
+			);
+			productName = "TransectCompanion Watch App";
+			productReference = FEEA825D29F1AB5300530ABE /* TransectCompanion Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FEEA826E29F1AB5600530ABE /* TransectCompanion Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEEA829029F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanion Watch AppTests" */;
+			buildPhases = (
+				FEEA826B29F1AB5600530ABE /* Sources */,
+				FEEA826C29F1AB5600530ABE /* Frameworks */,
+				FEEA826D29F1AB5600530ABE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEEA827129F1AB5600530ABE /* PBXTargetDependency */,
+			);
+			name = "TransectCompanion Watch AppTests";
+			productName = "TransectCompanion Watch AppTests";
+			productReference = FEEA826F29F1AB5600530ABE /* TransectCompanion Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FEEA827829F1AB5600530ABE /* TransectCompanion Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEEA829329F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanion Watch AppUITests" */;
+			buildPhases = (
+				FEEA827529F1AB5600530ABE /* Sources */,
+				FEEA827629F1AB5600530ABE /* Frameworks */,
+				FEEA827729F1AB5600530ABE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEEA827B29F1AB5600530ABE /* PBXTargetDependency */,
+			);
+			name = "TransectCompanion Watch AppUITests";
+			productName = "TransectCompanion Watch AppUITests";
+			productReference = FEEA827929F1AB5600530ABE /* TransectCompanion Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FEEA822F29F1AB5000530ABE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					FEEA823629F1AB5100530ABE = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					FEEA824629F1AB5300530ABE = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = FEEA823629F1AB5100530ABE;
+					};
+					FEEA825029F1AB5300530ABE = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = FEEA823629F1AB5100530ABE;
+					};
+					FEEA825C29F1AB5300530ABE = {
+						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
+					};
+					FEEA826E29F1AB5600530ABE = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = FEEA825C29F1AB5300530ABE;
+					};
+					FEEA827829F1AB5600530ABE = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = FEEA825C29F1AB5300530ABE;
+					};
+				};
+			};
+			buildConfigurationList = FEEA823229F1AB5000530ABE /* Build configuration list for PBXProject "TransectCompanion" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FEEA822E29F1AB5000530ABE;
+			packageReferences = (
+				FE21DFA629F1AE06003AA500 /* XCRemoteSwiftPackageReference "UTMConversion" */,
+			);
+			productRefGroup = FEEA823829F1AB5100530ABE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FEEA823629F1AB5100530ABE /* TransectCompanion */,
+				FEEA824629F1AB5300530ABE /* TransectCompanionTests */,
+				FEEA825029F1AB5300530ABE /* TransectCompanionUITests */,
+				FEEA825C29F1AB5300530ABE /* TransectCompanion Watch App */,
+				FEEA826E29F1AB5600530ABE /* TransectCompanion Watch AppTests */,
+				FEEA827829F1AB5600530ABE /* TransectCompanion Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FEEA823529F1AB5100530ABE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEEA824229F1AB5300530ABE /* Preview Assets.xcassets in Resources */,
+				FEEA823F29F1AB5300530ABE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA824529F1AB5300530ABE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA824F29F1AB5300530ABE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA825B29F1AB5300530ABE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE21DFA129F1AD7C003AA500 /* Assets.xcassets in Resources */,
+				FE21DF9F29F1AD7C003AA500 /* Preview Content in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA826D29F1AB5600530ABE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA827729F1AB5600530ABE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FEEA823329F1AB5100530ABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEEA823D29F1AB5100530ABE /* ContentView.swift in Sources */,
+				FEEA823B29F1AB5100530ABE /* TransectCompanionApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA824329F1AB5300530ABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEEA824C29F1AB5300530ABE /* TransectCompanionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA824D29F1AB5300530ABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEEA825629F1AB5300530ABE /* TransectCompanionUITests.swift in Sources */,
+				FEEA825829F1AB5300530ABE /* TransectCompanionUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA825929F1AB5300530ABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE21DFA329F1AD7C003AA500 /* Settings.swift in Sources */,
+				FE21DF9C29F1AD7C003AA500 /* ContentView.swift in Sources */,
+				FE21DFA029F1AD7C003AA500 /* SettingsView.swift in Sources */,
+				FE21DFA429F1AD7C003AA500 /* TransectCompanionApp.swift in Sources */,
+				FE21DFA529F1AD7C003AA500 /* LocationManager.swift in Sources */,
+				FE21DFA229F1AD7C003AA500 /* LocationView.swift in Sources */,
+				FE21DF9E29F1AD7C003AA500 /* MainView.swift in Sources */,
+				FE21DF9D29F1AD7C003AA500 /* CompassView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA826B29F1AB5600530ABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEEA827429F1AB5600530ABE /* TransectCompanion_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEA827529F1AB5600530ABE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEEA827E29F1AB5600530ABE /* TransectCompanion_Watch_AppUITests.swift in Sources */,
+				FEEA828029F1AB5600530ABE /* TransectCompanion_Watch_AppUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FEEA824929F1AB5300530ABE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEEA823629F1AB5100530ABE /* TransectCompanion */;
+			targetProxy = FEEA824829F1AB5300530ABE /* PBXContainerItemProxy */;
+		};
+		FEEA825329F1AB5300530ABE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEEA823629F1AB5100530ABE /* TransectCompanion */;
+			targetProxy = FEEA825229F1AB5300530ABE /* PBXContainerItemProxy */;
+		};
+		FEEA826029F1AB5300530ABE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEEA825C29F1AB5300530ABE /* TransectCompanion Watch App */;
+			targetProxy = FEEA825F29F1AB5300530ABE /* PBXContainerItemProxy */;
+		};
+		FEEA827129F1AB5600530ABE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEEA825C29F1AB5300530ABE /* TransectCompanion Watch App */;
+			targetProxy = FEEA827029F1AB5600530ABE /* PBXContainerItemProxy */;
+		};
+		FEEA827B29F1AB5600530ABE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEEA825C29F1AB5300530ABE /* TransectCompanion Watch App */;
+			targetProxy = FEEA827A29F1AB5600530ABE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FEEA828129F1AB5600530ABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FEEA828229F1AB5600530ABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		FEEA828429F1AB5600530ABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TransectCompanion Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TransectCompanion;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Transect Companion needs to access your location information.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = meester.TransectCompanion;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = meester.TransectCompanion.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		FEEA828529F1AB5600530ABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TransectCompanion Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TransectCompanion;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Transect Companion needs to access your location information.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = meester.TransectCompanion;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = meester.TransectCompanion.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		FEEA828829F1AB5600530ABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TransectCompanion/Preview Content\"";
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TransectCompanion;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = meester.TransectCompanion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FEEA828929F1AB5600530ABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TransectCompanion/Preview Content\"";
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TransectCompanion;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = meester.TransectCompanion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FEEA828B29F1AB5600530ABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = meester.TransectCompanionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransectCompanion.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TransectCompanion";
+			};
+			name = Debug;
+		};
+		FEEA828C29F1AB5600530ABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = meester.TransectCompanionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransectCompanion.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TransectCompanion";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FEEA828E29F1AB5600530ABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = meester.TransectCompanionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TransectCompanion;
+			};
+			name = Debug;
+		};
+		FEEA828F29F1AB5600530ABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = meester.TransectCompanionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TransectCompanion;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FEEA829129F1AB5600530ABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "meester.TransectCompanion-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransectCompanion Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TransectCompanion Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		FEEA829229F1AB5600530ABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "meester.TransectCompanion-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransectCompanion Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TransectCompanion Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		FEEA829429F1AB5600530ABE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "meester.TransectCompanion-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "TransectCompanion Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		FEEA829529F1AB5600530ABE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P45Q5NR6Q7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "meester.TransectCompanion-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "TransectCompanion Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FEEA823229F1AB5000530ABE /* Build configuration list for PBXProject "TransectCompanion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEA828129F1AB5600530ABE /* Debug */,
+				FEEA828229F1AB5600530ABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEEA828329F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanion Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEA828429F1AB5600530ABE /* Debug */,
+				FEEA828529F1AB5600530ABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEEA828729F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEA828829F1AB5600530ABE /* Debug */,
+				FEEA828929F1AB5600530ABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEEA828A29F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEA828B29F1AB5600530ABE /* Debug */,
+				FEEA828C29F1AB5600530ABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEEA828D29F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEA828E29F1AB5600530ABE /* Debug */,
+				FEEA828F29F1AB5600530ABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEEA829029F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanion Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEA829129F1AB5600530ABE /* Debug */,
+				FEEA829229F1AB5600530ABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEEA829329F1AB5600530ABE /* Build configuration list for PBXNativeTarget "TransectCompanion Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEA829429F1AB5600530ABE /* Debug */,
+				FEEA829529F1AB5600530ABE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE21DFA629F1AE06003AA500 /* XCRemoteSwiftPackageReference "UTMConversion" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wtw-software/UTMConversion";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE21DFA729F1AE06003AA500 /* UTMConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE21DFA629F1AE06003AA500 /* XCRemoteSwiftPackageReference "UTMConversion" */;
+			productName = UTMConversion;
+		};
+		FE21DFAA29F1AEFE003AA500 /* UTMConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE21DFA629F1AE06003AA500 /* XCRemoteSwiftPackageReference "UTMConversion" */;
+			productName = UTMConversion;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FEEA822F29F1AB5000530ABE /* Project object */;
+}
