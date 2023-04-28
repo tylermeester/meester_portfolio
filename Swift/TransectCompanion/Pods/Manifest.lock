@@ -1,0 +1,24 @@
+PODS:
+  - GoogleMaps (7.4.0):
+    - GoogleMaps/Maps (= 7.4.0)
+  - GoogleMaps/Base (7.4.0)
+  - GoogleMaps/Maps (7.4.0):
+    - GoogleMaps/Base
+  - UTMConversion (1.3.0)
+
+DEPENDENCIES:
+  - GoogleMaps
+  - UTMConversion
+
+SPEC REPOS:
+  trunk:
+    - GoogleMaps
+    - UTMConversion
+
+SPEC CHECKSUMS:
+  GoogleMaps: 032f676450ba0779bd8ce16840690915f84e57ac
+  UTMConversion: 981207aedec96e604294711ba95da661156790cf
+
+PODFILE CHECKSUM: c2346558c4a846ba754f926c01f677778eb35a29
+
+COCOAPODS: 1.12.1
