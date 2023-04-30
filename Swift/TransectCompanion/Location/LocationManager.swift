@@ -11,6 +11,7 @@ import UTMConversion
 import AudioToolbox
 import UserNotifications
 import UIKit
+import GoogleMaps
 
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
@@ -22,16 +23,22 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
      */
     // ---------- LOCATION  ----------
     @Published var heading: CLHeading?
-    @Published var utmCoordinates: String = "Loading..."
+    @Published var utmCoordinatesString: String = "Loading..."
     @Published var zone: Int?
     @Published var easting: Double?
     @Published var targetEasting: Double?
     @Published var northing: Double?
     @Published var targetNorthing: Double?
-    @Published var latitude: CLLocationDegrees?
-    @Published var longitude: CLLocationDegrees?
+
     @Published var initialLocation: CLLocation?
+    @Published var currentLocationCoordinate2D: CLLocationCoordinate2D?
     
+    // ---------- TARGET LINES ----------
+    @Published var targetLineStart: CLLocationCoordinate2D?
+    @Published var targetLineEnd: CLLocationCoordinate2D?
+    @Published var targetLineDisplay = false
+    @Published var targetLinePolyline: GMSPolyline? = nil
+
     
     // ---------- VIBRATION NOTIFICATION ----------
     @Published var targetRange: Double = 5 // range from target easting or northing to notify user
@@ -59,7 +66,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
-    /**
+    /**  
      -------------------------------------------------
      ------------------------ DELEGATE METHODS ----------------------------------
      -------------------------------------------------
@@ -70,9 +77,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         // and if so, retrieve the last one (the most recent location update).
         if let location = locations.last {
             
-            // Update latitude and longitude properties
-            latitude = location.coordinate.latitude
-            longitude = location.coordinate.longitude
+            // Saves location as CLLocationCoordinate2D
+            currentLocationCoordinate2D = location.coordinate
+    
             
             // Convert the CLLocation object to UTM coordinates.
             let utmCoordinate = location.utmCoordinate()
@@ -84,8 +91,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             easting = utmCoordinate.easting
             northing = utmCoordinate.northing
             
+            
             // Format and store the UTM coordinates as a string.
-            utmCoordinates = "Zone: \(utmCoordinate.zone)\(hemisphere) \nEasting: \(easting ?? 0) \nNorthing: \(northing ?? 0)"
+            utmCoordinatesString = "Zone: \(utmCoordinate.zone)\(hemisphere) \nEasting: \(easting ?? 0) \nNorthing: \(northing ?? 0)"
             
             // Check if the device is within the target range by calling the checkDistance function.
             checkDistance(targetRange: targetRange)
@@ -124,31 +132,95 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
      */
     // This function assigns the current easting value as the target easting.
     // If the target easting is already set, tapping again deselects it.
-    func setTargetEasting(easting: Double) {
+    func setTargetEasting(location: CLLocationCoordinate2D ) {
         // Check if the target easting is not set.
         if (targetEasting == nil) {
-            // Set the target easting and reset the target northing.
-            targetEasting = easting
+            // Gets the UTM info of the location
+            let utm = location.utmCoordinate()
+            
+            
+        
+
+            // Saves the updated UTM coordinate with the new northing value
+            let startUTM = UTMCoordinate(northing: (utm.northing - 1000), easting: utm.easting, zone: utm.zone, hemisphere: utm.hemisphere)
+            let endUTM = UTMCoordinate(northing: (utm.northing + 1000), easting: utm.easting, zone: utm.zone, hemisphere: utm.hemisphere)
+
+                    
+            // Save the targetEasting and line start coordinates
+            targetEasting = utm.easting
+            targetLineStart = startUTM.coordinate()
+            targetLineEnd = endUTM.coordinate()
+            
+            // Make sure targetNorthing set to nil
             targetNorthing = nil
+
         } else {
             // If the target easting is already set, deselect it.
             targetEasting = nil
+            targetLineStart = nil
+            targetLineEnd = nil
         }
     }
 
     // This function assigns the current northing value as the target northing.
     // If the target northing is already set, tapping again deselects it.
-    func setTargetNorthing(northing: Double) {
+    func setTargetNorthing(location: CLLocationCoordinate2D) {
         // Check if the target northing is not set.
         if (targetNorthing == nil) {
-            // Set the target northing and reset the target easting.
-            targetNorthing = northing
+            // Gets the UTM info of the location
+            let utm = location.utmCoordinate()
+            
+            // Saves the updated UTM coordinate with the new easting value
+            let startUTM = UTMCoordinate(northing: utm.northing, easting: (utm.easting - 1000), zone: utm.zone, hemisphere: utm.hemisphere)
+            let endUTM = UTMCoordinate(northing: utm.northing, easting: (utm.easting + 1000), zone: utm.zone, hemisphere: utm.hemisphere)
+            
+            // Save the targetNorthing and line start coordinates
+            targetNorthing = utm.northing
+            targetLineStart = startUTM.coordinate()
+            targetLineEnd = endUTM.coordinate()
+            
+            
+            // Make sure targetEasting set to nil
             targetEasting = nil
+
         } else {
             // If the target northing is already set, deselect it.
             targetNorthing = nil
+            targetLineStart = nil
+            targetLineEnd = nil
         }
     }
+    
+    func drawTargetLine() {
+        guard let startLocation = targetLineStart, let endLocation = targetLineEnd else {
+            targetLinePolyline = nil
+            targetLineDisplay = false
+            return
+        }
+
+        if let existingPolyline = targetLinePolyline {
+            existingPolyline.map = nil
+            targetLinePolyline = nil
+            targetLineDisplay = false
+        } else {
+            let path = GMSMutablePath()
+            path.addLatitude(startLocation.latitude, longitude: startLocation.longitude)
+            path.addLatitude(endLocation.latitude, longitude: endLocation.longitude)
+
+            let polyline = GMSPolyline(path: path)
+            polyline.strokeWidth = 3.0
+            polyline.strokeColor = .red
+
+            targetLinePolyline = polyline
+            targetLineDisplay = true
+        }
+    }
+
+    
+    func resetTargetLineDisplay() {
+        targetLineDisplay = false
+    }
+    
     
     
     // Checks if the user is within the range of the target UTM, and returns a boolean value
@@ -177,6 +249,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             isOutOfRange = false
         }
     }
+    
 
     
     

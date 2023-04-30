@@ -8,6 +8,7 @@ struct ContentView: View {
     @State private var showMap = true
     @State private var showSettingsView = false
     @State private var rotation: Double = 0
+    
 
 
     
@@ -20,11 +21,9 @@ struct ContentView: View {
                         MapView(locationManager: locationManager, rotation: $rotation)
                             .frame(height: geometry.size.height * (2/3))
                         
-                        
-                        
                         VStack {
                             
-                            if let easting = locationManager.easting, let northing = locationManager.northing {
+                            if let currentLocationCoordinate2D = locationManager.currentLocationCoordinate2D  {
                                 
                                 
                                 HStack {
@@ -40,17 +39,17 @@ struct ContentView: View {
                                     }
                                     
                                     VStack(alignment: .leading) {
-                                        Text(String(format: "%.0f", easting))
+                                        Text(String(format: "%.0f", locationManager.easting ?? 0))
                                             .foregroundColor(.white)
                                             .font(.system(size: 16, weight: .medium))
                                             .onTapGesture {
-                                                locationManager.setTargetEasting(easting: easting)
+                                                locationManager.setTargetEasting(location: currentLocationCoordinate2D)
                                             }
-                                        Text(String(format: "%.0f", northing))
+                                        Text(String(format: "%.0f", locationManager.northing ?? 0))
                                             .foregroundColor(.white)
                                             .font(.system(size: 16, weight: .medium))
                                             .onTapGesture {
-                                                locationManager.setTargetNorthing(northing: northing)
+                                                locationManager.setTargetNorthing(location: currentLocationCoordinate2D)
                                             }
                                     }
                                 }
@@ -79,7 +78,6 @@ struct ContentView: View {
                             
                             HStack {
                                 Button(action: {
-                                    // Button 1 action
                                     print("Button 1 tapped")
                                 }) {
                                     VStack {
@@ -94,18 +92,24 @@ struct ContentView: View {
                                 
                                 
                                 Button(action: {
-                                    // Button 2 action
+                                    // Button 1 action
                                     print("Button 2 tapped")
-                                }) {
+                                    locationManager.drawTargetLine()
+
+                       
+                                    }
+                                ) {
                                     VStack {
                                         Image(systemName: "2.circle")
-                                        Text("Button 2")
+                                        Text("Draw Target Line")
                                     }
                                 }
                                 .padding()
                                 .background(Color.white)
                                 .cornerRadius(10)
                                 .font(.system(size: 11))
+                                
+                                
                                 
                                 Button(action: {
                                     rotateMap()
