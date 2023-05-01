@@ -3,14 +3,29 @@ import UTMConversion
 import AudioToolbox
 import GoogleMaps
 
+struct CustomButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(width: 110, height: 50)
+            .background(Color(.darkGray))
+            .cornerRadius(10)
+            .foregroundColor(.white)
+            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
+    }
+}
+
 struct ContentView: View {
     @StateObject private var locationManager = LocationManager()
     @State private var showMap = true
     @State private var showSettingsView = false
+    @State private var showCompassView = false
     @State private var rotation: Double = 0
+    @State private var compassHeading: CLLocationDirection? = nil
+
     
-
-
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,36 +33,46 @@ struct ContentView: View {
                 
                 if locationManager.initialLocation != nil {
                     VStack {
+                        /**-------------------------------------------
+                         -------------------------------------- MAP  ----------------------------------
+                         ---------------------------------------------
+                         */
                         MapView(locationManager: locationManager, rotation: $rotation)
                             .frame(height: geometry.size.height * (2/3))
                         
+                        
+                        
+                        /**-------------------------------------------
+                         ------------------------------ DASHBOARD  -------------------------------
+                         ---------------------------------------------
+                         */
                         VStack {
                             
                             if let currentLocationCoordinate2D = locationManager.currentLocationCoordinate2D  {
-                                
-                                
+                        
                                 HStack {
-                                    VStack(alignment: .leading) {
+                                    VStack(alignment: .center) {
                                         
                                         
                                         Text("Easting:")
                                             .foregroundColor(.white)
-                                            .font(.system(size: 16, weight: .bold))
+                                            .font(.system(size: 18, weight: .bold))
                                         Text("Northing:")
                                             .foregroundColor(.white)
-                                            .font(.system(size: 16, weight: .bold))
+                                            .font(.system(size: 18, weight: .bold))
                                     }
                                     
                                     VStack(alignment: .leading) {
                                         Text(String(format: "%.0f", locationManager.easting ?? 0))
                                             .foregroundColor(.white)
-                                            .font(.system(size: 16, weight: .medium))
+                                            .font(.system(size: 18, weight: .medium))
                                             .onTapGesture {
                                                 locationManager.setTargetEasting(location: currentLocationCoordinate2D)
                                             }
                                         Text(String(format: "%.0f", locationManager.northing ?? 0))
                                             .foregroundColor(.white)
-                                            .font(.system(size: 16, weight: .medium))
+                                            .font(.system(size: 18, weight: .medium))
+
                                             .onTapGesture {
                                                 locationManager.setTargetNorthing(location: currentLocationCoordinate2D)
                                             }
@@ -58,13 +83,13 @@ struct ContentView: View {
                                 if let targetEasting = locationManager.targetEasting {
                                     Text("Target Easting: \(String(format: "%.0f", targetEasting))")
                                         .foregroundColor(.green)
-                                        .font(.system(size: 16, design: .monospaced))
+                                        .font(.system(size: 18, weight: .medium))
                                         .multilineTextAlignment(.center)
                                     
                                 } else if let targetNorthing = locationManager.targetNorthing {
                                     Text("Target Northing: \(String(format: "%.0f", targetNorthing))")
                                         .foregroundColor(.green)
-                                        .font(.system(size: 16, design: .monospaced))
+                                        .font(.system(size: 18, weight: .medium))
                                         .multilineTextAlignment(.center)
                                 }
                                 Spacer()
@@ -76,52 +101,47 @@ struct ContentView: View {
                             
                             
                             
+                            
+                            /**---------------------------------------------
+                             ----------------------------------BOTTOM BAR ----------------------------------
+                             -----------------------------------------------
+                             */
                             HStack {
+                                /**-------------------------------------------
+                                 -------------------DRAW TARGET LINE BUTTON ---------------------
+                                 ---------------------------------------------
+                                 */
                                 Button(action: {
-                                    print("Button 1 tapped")
-                                }) {
-                                    VStack {
-                                        Image(systemName: "1.circle")
-                                        Text("Button 1")
-                                    }
+                                    locationManager.toggleTargetLineDisplay()
                                 }
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(10)
-                                .font(.system(size: 11))
-                                
-                                
-                                Button(action: {
-                                    // Button 1 action
-                                    print("Button 2 tapped")
-                                    locationManager.drawTargetLine()
-
-                       
-                                    }
                                 ) {
                                     VStack {
-                                        Image(systemName: "2.circle")
-                                        Text("Draw Target Line")
+                                        Text("Target \n Line")
                                     }
                                 }
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(10)
-                                .font(.system(size: 11))
+                                .buttonStyle(CustomButtonStyle())
+
                                 
                                 
-                                
+                                /**-------------------------------------------
+                                 ----------------------- COMPASS BUTTON -------------------------------
+                                 ---------------------------------------------
+                                 */
                                 Button(action: {
-                                    rotateMap()
+                                    withAnimation {
+                                        showCompassView.toggle()
+                                    }
                                 }) {
-                                    Text("Rotate \n Map")
+                                    Text("Compass")
                                 }
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(10)
-                                .font(.system(size: 11))
+                                .buttonStyle(CustomButtonStyle())
+
                                 
                                 
+                                /**-------------------------------------------
+                                 -------------------------- SETTINGS BUTTON -----------------------------
+                                 ---------------------------------------------
+                                 */
                                 Button(action: {
                                     // Button 3 action
                                     showSettingsView.toggle()
@@ -134,10 +154,8 @@ struct ContentView: View {
                                 .sheet(isPresented: $showSettingsView) {
                                     SettingsView(locationManager: locationManager)
                                 }
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(10)
-                                .font(.system(size: 11))
+                                .buttonStyle(CustomButtonStyle())
+
                                 
                             }
                             .padding(.bottom)
@@ -147,35 +165,64 @@ struct ContentView: View {
                     }
                 } else {
                     LoadingView()
-                    
+                }
+                
+                
+            }
+  
+            .edgesIgnoringSafeArea(.all)
+            
+            /**-------------------------------------------
+             ----------------------------- COMPASS VIEW -----------------------------
+             ---------------------------------------------
+             */
+            .overlay(
+                    Group {
+                        if showCompassView {
+                            VStack {
+                                Spacer()
+                                CompassView(locationManager: locationManager)
+                                    .padding(.bottom, 50)
+                                    .frame(width: geometry.size.width, height: geometry.size.height * (2/5))
+                                    .background(Color.black)
+                                    .cornerRadius(15)
+                                    .onTapGesture { // Add onTapGesture to the compass view
+                                        withAnimation {
+                                            showCompassView = false
+                                        }
+                                    }
+                            }
+                            .transition(.opacity)
+//                            .transition(.move(edge: .bottom))
+                        }
+                    }
+                )
+            .onTapGesture { // Add onTapGesture to the main ZStack
+                withAnimation {
+                    showCompassView = false
                 }
             }
+            
         }
-        .edgesIgnoringSafeArea(.all)
+        
     }
     
-    func rotateMap() {
-        rotation += 90
-        if rotation == 360 {
-            rotation = 0
+    struct LoadingView: View {
+        var body: some View {
+            VStack {
+                Text("Loading map...")
+                    .font(.system(size: 20))
+                Spacer()
+            }
+        }
+    }
+    
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
         }
     }
 }
-
-struct LoadingView: View {
-    var body: some View {
-        VStack {
-            Text("Loading map...")
-                .font(.system(size: 20))
-            Spacer()
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
 

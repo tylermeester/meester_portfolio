@@ -35,9 +35,24 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     // ---------- TARGET LINES ----------
     @Published var targetLineStart: CLLocationCoordinate2D?
+    @Published var targetLineUpperStart: CLLocationCoordinate2D?
+    @Published var targetLineLowerStart: CLLocationCoordinate2D?
+
     @Published var targetLineEnd: CLLocationCoordinate2D?
+    @Published var targetLineUpperEnd: CLLocationCoordinate2D?
+    @Published var targetLineLowerEnd: CLLocationCoordinate2D?
+    
+    @Published var targetLinePolyline: GMSPolyline? // = nil (???)
+    
+    @Published var targetLineRangePolylineUpper: GMSPolyline?
+    @Published var targetLineRangePolylineLower: GMSPolyline?
+    @Published var targetLineRangePolygon: GMSPolygon?
+
     @Published var targetLineDisplay = false
-    @Published var targetLinePolyline: GMSPolyline? = nil
+    
+    // ---------- MAP SETTINGS ----------
+    @Published var shouldFollowUser: Bool = true 
+
 
     
     // ---------- VIBRATION NOTIFICATION ----------
@@ -45,6 +60,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var isOutOfRange = false
     @Published var vibrationEnabled = true // used for program logic to determine whether watch should vibrate
     @Published var backgroundVibrationEnabled = true
+
     
     
     // ---------- INITIALIZING LOCATION MANAGER ----------
@@ -102,7 +118,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             if isOutOfRange && vibrationEnabled {
                 let appState = UIApplication.shared.applicationState
                 
-                // If the app is in the background and background vibration is enabled
+                // If the app is in the background and background vibration is enabled, vibrate.
                 if appState == .background && backgroundVibrationEnabled {
                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 }
@@ -135,17 +151,16 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func setTargetEasting(location: CLLocationCoordinate2D ) {
         // Check if the target easting is not set.
         if (targetEasting == nil) {
+            
+            targetLineDisplay = false
+
             // Gets the UTM info of the location
             let utm = location.utmCoordinate()
             
-            
-        
-
             // Saves the updated UTM coordinate with the new northing value
-            let startUTM = UTMCoordinate(northing: (utm.northing - 1000), easting: utm.easting, zone: utm.zone, hemisphere: utm.hemisphere)
-            let endUTM = UTMCoordinate(northing: (utm.northing + 1000), easting: utm.easting, zone: utm.zone, hemisphere: utm.hemisphere)
+            let startUTM = UTMCoordinate(northing: (utm.northing - 500), easting: utm.easting, zone: utm.zone, hemisphere: utm.hemisphere)
+            let endUTM = UTMCoordinate(northing: (utm.northing + 500), easting: utm.easting, zone: utm.zone, hemisphere: utm.hemisphere)
 
-                    
             // Save the targetEasting and line start coordinates
             targetEasting = utm.easting
             targetLineStart = startUTM.coordinate()
@@ -156,9 +171,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
         } else {
             // If the target easting is already set, deselect it.
+            targetLineDisplay = false
             targetEasting = nil
             targetLineStart = nil
             targetLineEnd = nil
+
         }
     }
 
@@ -167,12 +184,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func setTargetNorthing(location: CLLocationCoordinate2D) {
         // Check if the target northing is not set.
         if (targetNorthing == nil) {
+            targetLineDisplay = false
+
             // Gets the UTM info of the location
             let utm = location.utmCoordinate()
             
             // Saves the updated UTM coordinate with the new easting value
-            let startUTM = UTMCoordinate(northing: utm.northing, easting: (utm.easting - 1000), zone: utm.zone, hemisphere: utm.hemisphere)
-            let endUTM = UTMCoordinate(northing: utm.northing, easting: (utm.easting + 1000), zone: utm.zone, hemisphere: utm.hemisphere)
+            let startUTM = UTMCoordinate(northing: utm.northing, easting: (utm.easting - 500), zone: utm.zone, hemisphere: utm.hemisphere)
+            let endUTM = UTMCoordinate(northing: utm.northing, easting: (utm.easting + 500), zone: utm.zone, hemisphere: utm.hemisphere)
             
             // Save the targetNorthing and line start coordinates
             targetNorthing = utm.northing
@@ -185,40 +204,91 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
         } else {
             // If the target northing is already set, deselect it.
+            targetLineDisplay = false
             targetNorthing = nil
             targetLineStart = nil
             targetLineEnd = nil
+
         }
     }
     
+    
+    // Draws the target line, the target range boundary lines, and colors the space in between
     func drawTargetLine() {
+        // Ensure that both start and end locations are available
         guard let startLocation = targetLineStart, let endLocation = targetLineEnd else {
+            // If either start or end location is missing, clear all related properties and return
             targetLinePolyline = nil
+            targetLineRangePolylineUpper = nil
+            targetLineRangePolylineLower = nil
+            targetLineRangePolygon = nil
             targetLineDisplay = false
             return
         }
 
-        if let existingPolyline = targetLinePolyline {
-            existingPolyline.map = nil
-            targetLinePolyline = nil
-            targetLineDisplay = false
-        } else {
-            let path = GMSMutablePath()
-            path.addLatitude(startLocation.latitude, longitude: startLocation.longitude)
-            path.addLatitude(endLocation.latitude, longitude: endLocation.longitude)
+        // Create the main target line path and polyline
+        let path = GMSMutablePath()
+        path.addLatitude(startLocation.latitude, longitude: startLocation.longitude)
+        path.addLatitude(endLocation.latitude, longitude: endLocation.longitude)
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 2.0
+        polyline.strokeColor = .blue
 
-            let polyline = GMSPolyline(path: path)
-            polyline.strokeWidth = 3.0
-            polyline.strokeColor = .red
+        // Calculate the range lines based on the user-defined target range
+        let targetRange: CLLocationDirection = self.targetRange
+        let upperPath = GMSMutablePath()
+        let lowerPath = GMSMutablePath()
 
-            targetLinePolyline = polyline
-            targetLineDisplay = true
-        }
+        // Calculate the bearing (angle) between the start and end locations
+        let startBearing = GMSGeometryHeading(startLocation, endLocation)
+        let upperStartBearing = startBearing + 90
+        let lowerStartBearing = startBearing - 90
+
+        // Calculate the upper and lower range line start and end locations
+        let upperStartLocation = GMSGeometryOffset(startLocation, targetRange, upperStartBearing)
+        let lowerStartLocation = GMSGeometryOffset(startLocation, targetRange, lowerStartBearing)
+        let upperEndLocation = GMSGeometryOffset(endLocation, targetRange, upperStartBearing)
+        let lowerEndLocation = GMSGeometryOffset(endLocation, targetRange, lowerStartBearing)
+
+        // Create the upper and lower range line paths and polylines
+        upperPath.add(upperStartLocation)
+        upperPath.add(upperEndLocation)
+        lowerPath.add(lowerStartLocation)
+        lowerPath.add(lowerEndLocation)
+        let polylineUpper = GMSPolyline(path: upperPath)
+        polylineUpper.strokeWidth = 2.0
+        polylineUpper.strokeColor = .red
+        let polylineLower = GMSPolyline(path: lowerPath)
+        polylineLower.strokeWidth = 2.0
+        polylineLower.strokeColor = .red
+
+        // Create a filled polygon connecting the upper and lower range lines
+        let polygonPath = GMSMutablePath()
+        polygonPath.add(upperStartLocation)
+        polygonPath.add(upperEndLocation)
+        polygonPath.add(lowerEndLocation)
+        polygonPath.add(lowerStartLocation)
+        let polygon = GMSPolygon(path: polygonPath)
+        polygon.fillColor = UIColor.green.withAlphaComponent(0.2)
+        polygon.strokeWidth = 0
+
+        // Update the target line and range line properties
+        targetLinePolyline = polyline
+        targetLineRangePolylineUpper = polylineUpper
+        targetLineRangePolylineLower = polylineLower
+        targetLineRangePolygon = polygon
+        targetLineDisplay = true
     }
 
+
     
-    func resetTargetLineDisplay() {
-        targetLineDisplay = false
+    func toggleTargetLineDisplay() {
+        if targetLineDisplay {
+            targetLineDisplay = false
+        } else {
+            targetLineDisplay = true
+            drawTargetLine()
+        }
     }
     
     

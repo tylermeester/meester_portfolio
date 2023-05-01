@@ -21,7 +21,7 @@
 		FE93D5DD29F9E31100492C4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93D5DC29F9E31100492C4C /* ContentView.swift */; };
 		FE93D5E129FA3E2E00492C4C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93D5E029FA3E2E00492C4C /* MapView.swift */; };
 		FE93D5E429FADB4400492C4C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93D5E329FADB4300492C4C /* SettingsView.swift */; };
-		FE93D5EB29FB4F8500492C4C /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE93D5EA29FB4F8500492C4C /* CompassView.swift */; };
+		FED7189C29FF21BF007ED046 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED7189B29FF21BF007ED046 /* CompassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,7 @@
 		FE93D5DE29F9E47800492C4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FE93D5E029FA3E2E00492C4C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FE93D5E329FADB4300492C4C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		FE93D5EA29FB4F8500492C4C /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
+		FED7189B29FF21BF007ED046 /* CompassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +205,7 @@
 		FE93D5E929FB4F7600492C4C /* Compass */ = {
 			isa = PBXGroup;
 			children = (
-				FE93D5EA29FB4F8500492C4C /* CompassView.swift */,
+				FED7189B29FF21BF007ED046 /* CompassView.swift */,
 			);
 			path = Compass;
 			sourceTree = "<group>";
@@ -374,7 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE93D5EB29FB4F8500492C4C /* CompassView.swift in Sources */,
+				FED7189C29FF21BF007ED046 /* CompassView.swift in Sources */,
 				FE08165D29F9DB1300C4A77C /* TransectCompanionApp.swift in Sources */,
 				FE93D5DB29F9E2D900492C4C /* WatchSessionManager.swift in Sources */,
 				FE93D5E129FA3E2E00492C4C /* MapView.swift in Sources */,
