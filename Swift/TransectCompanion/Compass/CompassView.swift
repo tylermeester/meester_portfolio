@@ -43,18 +43,20 @@ struct CompassView: View {
                     .onReceive(locationManager.$heading) { _ in
                         checkCardinalAlignment()
                     }
+                
+                // Display the north indicator.This is the user's current location arrow icon
+                Image(systemName: "location.north.line")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 70, height: 70)
+                    .foregroundColor(.green)
+                    .offset(y: -10)
+
             // If no heading information is available, display a loading message.
             } else {
                 Text("Loading compass...")
             }
 
-            // Display the north indicator.This is the user's current location arrow icon
-            Image(systemName: "location.north.line")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 70, height: 70)
-                .foregroundColor(.green)
-                .offset(y: -10)
         }
         // When the view appears, set isViewVisible to true.
         .onAppear {

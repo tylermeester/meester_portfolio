@@ -256,11 +256,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         lowerPath.add(lowerStartLocation)
         lowerPath.add(lowerEndLocation)
         let polylineUpper = GMSPolyline(path: upperPath)
-        polylineUpper.strokeWidth = 2.0
-        polylineUpper.strokeColor = .red
+        polylineUpper.strokeWidth = 1.5
+        polylineUpper.strokeColor = .black
         let polylineLower = GMSPolyline(path: lowerPath)
-        polylineLower.strokeWidth = 2.0
-        polylineLower.strokeColor = .red
+        polylineLower.strokeWidth = 1.5
+        polylineLower.strokeColor = .black
 
         // Create a filled polygon connecting the upper and lower range lines
         let polygonPath = GMSMutablePath()

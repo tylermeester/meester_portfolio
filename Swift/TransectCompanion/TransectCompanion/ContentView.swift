@@ -6,8 +6,8 @@ import GoogleMaps
 struct CustomButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(width: 110, height: 50)
-            .background(Color(.darkGray))
+            .frame(width: 100, height: 55)
+            .background(Color(.systemGray5))
             .cornerRadius(10)
             .foregroundColor(.white)
             .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
@@ -15,6 +15,9 @@ struct CustomButtonStyle: ButtonStyle {
             .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
     }
 }
+
+
+
 
 struct ContentView: View {
     @StateObject private var locationManager = LocationManager()
@@ -49,10 +52,9 @@ struct ContentView: View {
                         VStack {
                             
                             if let currentLocationCoordinate2D = locationManager.currentLocationCoordinate2D  {
-                        
+                                
                                 HStack {
                                     VStack(alignment: .center) {
-                                        
                                         
                                         Text("Easting:")
                                             .foregroundColor(.white)
@@ -72,7 +74,7 @@ struct ContentView: View {
                                         Text(String(format: "%.0f", locationManager.northing ?? 0))
                                             .foregroundColor(.white)
                                             .font(.system(size: 18, weight: .medium))
-
+                                        
                                             .onTapGesture {
                                                 locationManager.setTargetNorthing(location: currentLocationCoordinate2D)
                                             }
@@ -106,71 +108,105 @@ struct ContentView: View {
                              ----------------------------------BOTTOM BAR ----------------------------------
                              -----------------------------------------------
                              */
-                            HStack {
-                                /**-------------------------------------------
-                                 -------------------DRAW TARGET LINE BUTTON ---------------------
-                                 ---------------------------------------------
-                                 */
-                                Button(action: {
-                                    locationManager.toggleTargetLineDisplay()
-                                }
-                                ) {
-                                    VStack {
-                                        Text("Target \n Line")
+                            ZStack(alignment: .top){
+                                HStack {
+                                    /**---------------------------------------------
+                                     ----------------------- DRAW TARGET BUTTON ----------------------------
+                                     -----------------------------------------------
+                                     */
+                                    Button(action: {
+                                        locationManager.toggleTargetLineDisplay()
+                                    }) {
+                                        VStack {
+                                            Image(systemName: "rotate.3d")
+                                            Text("Target")
+                                        }
                                     }
-                                }
-                                .buttonStyle(CustomButtonStyle())
-
-                                
-                                
-                                /**-------------------------------------------
-                                 ----------------------- COMPASS BUTTON -------------------------------
-                                 ---------------------------------------------
-                                 */
-                                Button(action: {
-                                    withAnimation {
-                                        showCompassView.toggle()
+                                    .buttonStyle(CustomButtonStyle())
+                                    .padding(.top, 8) // Add horizontal padding to the HStack
+                                    .padding(.leading, 20) // Add horizontal padding to the HStack
+                                    
+                
+                                    // Divider line
+                                    Divider()
+                                        .frame(height: 40)
+                                    
+                                    /**---------------------------------------------
+                                     ----------------------- SHOW COMPASS BUTTON -------------------------
+                                     -----------------------------------------------
+                                     */
+                                    Button(action: {
+                                        withAnimation {
+                                            showCompassView.toggle()
+                                        }
+                                    }) {
+                                        VStack{
+                                            Image(systemName: "location.north.circle")
+                                            Text("Compass")
+                                        }
+                                        
                                     }
-                                }) {
-                                    Text("Compass")
-                                }
-                                .buttonStyle(CustomButtonStyle())
-
-                                
-                                
-                                /**-------------------------------------------
-                                 -------------------------- SETTINGS BUTTON -----------------------------
-                                 ---------------------------------------------
-                                 */
-                                Button(action: {
-                                    // Button 3 action
-                                    showSettingsView.toggle()
-                                }) {
-                                    VStack {
-                                        Image(systemName: "gear")
-                                        Text("Settings")
+                                    .buttonStyle(CustomButtonStyle())
+                                    .padding(.top, 8) // Add horizontal padding to the HStack
+                                    
+                                    // Divider line
+                                    Divider()
+                                        .frame(height: 40)
+                                    
+                                    /**---------------------------------------------
+                                     ----------------------------- SETTINGS BUTTON -----------------------------
+                                     -----------------------------------------------
+                                     */
+                                    Button(action: {
+                                        showSettingsView.toggle()
+                                    }) {
+                                        VStack {
+                                            Image(systemName: "gear")
+                                            Text("Settings")
+                                        }
                                     }
+                                    .sheet(isPresented: $showSettingsView) {
+                                        SettingsView(locationManager: locationManager)
+                                    }
+                                    .buttonStyle(CustomButtonStyle())
+                                    .padding(.top, 8) // Add horizontal padding to the HStack
+                                    .padding(.trailing, 20) // Add horizontal padding to the HStack
                                 }
-                                .sheet(isPresented: $showSettingsView) {
-                                    SettingsView(locationManager: locationManager)
-                                }
-                                .buttonStyle(CustomButtonStyle())
-
+                                /**---------------------------------------------
+                                 ----------------- BOTTOM BAR HSTACK PROPERTIES------------------
+                                 -----------------------------------------------
+                                 */
+                                .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
                                 
+                                // DIVIDER ON TOP EDGE OF BOTTOM BAR
+                                Divider()
+                                    .background(Color.white.opacity(0.2))
+                                    .padding(.leading, 1)
+                                    .padding(.trailing, 1)
+                                    .zIndex(1)
+                                }
                             }
-                            .padding(.bottom)
+                        /**---------------------------------------------
+                         ----------------- DASHBOARD VSTACK PROPERTIES------------------
+                         -----------------------------------------------
+                         */
+                            .frame(height: geometry.size.height * (1/3))
+                            .background(Color.black)
+                            .edgesIgnoringSafeArea(.bottom)
                         }
-                        .frame(height: geometry.size.height * (1/3))
-                        .background(Color.black)
                     }
-                } else {
+                
+                else {
                     LoadingView()
                 }
-                
-                
             }
-  
-            .edgesIgnoringSafeArea(.all)
+            /**---------------------------------------------
+             -------------------- TOP LEVEL VSTACK PROPERTIES------------------
+             -----------------------------------------------
+             */
+            // Makes background black, and forces app to use dark mode
+            .background(Color.black.edgesIgnoringSafeArea(.all))
+            .preferredColorScheme(.dark)
             
             /**-------------------------------------------
              ----------------------------- COMPASS VIEW -----------------------------
@@ -182,10 +218,10 @@ struct ContentView: View {
                             VStack {
                                 Spacer()
                                 CompassView(locationManager: locationManager)
-                                    .padding(.bottom, 50)
-                                    .frame(width: geometry.size.width, height: geometry.size.height * (2/5))
+                                    .padding(.bottom, 20)
+                                    .frame(width: geometry.size.width, height: geometry.size.height * (1/3))
                                     .background(Color.black)
-                                    .cornerRadius(15)
+//                                    .cornerRadius(15)
                                     .onTapGesture { // Add onTapGesture to the compass view
                                         withAnimation {
                                             showCompassView = false
@@ -193,7 +229,6 @@ struct ContentView: View {
                                     }
                             }
                             .transition(.opacity)
-//                            .transition(.move(edge: .bottom))
                         }
                     }
                 )

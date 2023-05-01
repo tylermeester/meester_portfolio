@@ -19,21 +19,27 @@ struct MapView: UIViewRepresentable {
     }
 
     func makeUIView(context: Context) -> GMSMapView {
+        // Create a camera using the initial location's latitude and longitude.
+        // If there's no initial location available, use 0 as the default latitude and longitude.
         let camera = GMSCameraPosition.camera(
             withLatitude: locationManager.initialLocation?.coordinate.latitude ?? 0,
             longitude: locationManager.initialLocation?.coordinate.longitude ?? 0,
             zoom: 20
         )
+        
+        // Create a GMSMapView with the camera defined above.
+        // The frame is set to CGRect.zero, which means the map view will be sized by its parent view.
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
+        // Map Customizations
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
-        
         mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         mapView.mapType = .satellite
-        mapView.delegate = context.coordinator
-//        mapView.settings.rotateGestures = false
         
+        // Assign the map view's delegate to the coordinator, which handles events such as map updates.
+        mapView.delegate = context.coordinator
+
         return mapView
     }
     
@@ -69,22 +75,24 @@ struct MapView: UIViewRepresentable {
     
 
     class Coordinator: NSObject, GMSMapViewDelegate {
+        // Store references to the parent MapView and the locationManager.
         var parent: MapView
         var locationManager: LocationManager
-        var lastKnownLocation: CLLocationCoordinate2D?
+    
         var isUserInteracting = false
         var compassImageView: UIImageView?
 
 
-
+        // Initialize the coordinator with a reference to the parent MapView.
         init(_ parent: MapView) {
             self.parent = parent
             self.locationManager = parent.locationManager
         }
 
         
+        // This method is called when the map view's camera position changes.
         func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-            // Follow the user's location if shouldFollowUser is true, the user is not interacting with the map, and the current location is available
+            // If the user is not interacting with the map and shouldFollowUser is true, update the camera to follow the user's location.
             if locationManager.shouldFollowUser, !isUserInteracting, let location = locationManager.currentLocationCoordinate2D {
                 let currentZoom = mapView.camera.zoom
                 let currentBearing = mapView.camera.bearing
@@ -94,7 +102,7 @@ struct MapView: UIViewRepresentable {
         
         
             
-            // Add or update the easting line polyline on the map
+            // Update the map view with target line data depending on whether targetLineDisplay is true or false.
             if parent.locationManager.targetLineDisplay {
                 parent.locationManager.targetLinePolyline?.map = mapView
                 parent.locationManager.targetLineRangePolylineUpper?.map = mapView
@@ -107,7 +115,7 @@ struct MapView: UIViewRepresentable {
                 parent.locationManager.targetLineRangePolygon?.map = nil
             }
             
-            
+            // If the compass image view hasn't been created yet, create and configure it.
             if compassImageView == nil {
                 let compassImage = UIImage(named: "compass")
                 let imageView = UIImageView(image: compassImage)
@@ -126,7 +134,7 @@ struct MapView: UIViewRepresentable {
                 compassImageView = imageView
             }
             
-            
+            // Update the compass heading and image based on the map view's camera bearing.
             parent.compassHeading = 360 - position.bearing
             parent.updateCompassImage(compassImageView!)
             
@@ -135,6 +143,7 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+            // Update the isUserInteracting flag based on whether the movement is caused by a user gesture.
             if gesture {
                 isUserInteracting = true
             }
@@ -144,8 +153,8 @@ struct MapView: UIViewRepresentable {
         }
 
         func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+            // Reset the isUserInteracting flag when the map view becomes idle (i.e., stops moving).
             isUserInteracting = false
-            
         }
         
         
