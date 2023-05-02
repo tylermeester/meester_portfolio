@@ -152,7 +152,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         // Check if the target easting is not set.
         if (targetEasting == nil) {
             
-            targetLineDisplay = false
+            clearTargetLine()
 
             // Gets the UTM info of the location
             let utm = location.utmCoordinate()
@@ -166,12 +166,13 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             targetLineStart = startUTM.coordinate()
             targetLineEnd = endUTM.coordinate()
             
-            // Make sure targetNorthing set to nil
             targetNorthing = nil
+            
+            drawTargetLine()
 
         } else {
             // If the target easting is already set, deselect it.
-            targetLineDisplay = false
+            clearTargetLine()
             targetEasting = nil
             targetLineStart = nil
             targetLineEnd = nil
@@ -184,7 +185,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func setTargetNorthing(location: CLLocationCoordinate2D) {
         // Check if the target northing is not set.
         if (targetNorthing == nil) {
-            targetLineDisplay = false
+            clearTargetLine()
 
             // Gets the UTM info of the location
             let utm = location.utmCoordinate()
@@ -197,14 +198,16 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             targetNorthing = utm.northing
             targetLineStart = startUTM.coordinate()
             targetLineEnd = endUTM.coordinate()
-            
-            
+    
             // Make sure targetEasting set to nil
             targetEasting = nil
+            
+            drawTargetLine()
 
+                
         } else {
             // If the target northing is already set, deselect it.
-            targetLineDisplay = false
+            clearTargetLine()
             targetNorthing = nil
             targetLineStart = nil
             targetLineEnd = nil
@@ -279,6 +282,34 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         targetLineRangePolygon = polygon
         targetLineDisplay = true
     }
+    
+    func clearTargetLine() {
+        // Remove target line polyline from the map if it exists
+        if let polyline = targetLinePolyline {
+            polyline.map = nil
+            targetLinePolyline = nil
+        }
+
+        // Remove target line range polyline upper from the map if it exists
+        if let polylineUpper = targetLineRangePolylineUpper {
+            polylineUpper.map = nil
+            targetLineRangePolylineUpper = nil
+        }
+
+        // Remove target line range polyline lower from the map if it exists
+        if let polylineLower = targetLineRangePolylineLower {
+            polylineLower.map = nil
+            targetLineRangePolylineLower = nil
+        }
+
+        // Remove target line range polygon from the map if it exists
+        if let polygon = targetLineRangePolygon {
+            polygon.map = nil
+            targetLineRangePolygon = nil
+        }
+    }
+    
+    
 
 
     
