@@ -80,6 +80,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             self?.locationManager.pausesLocationUpdatesAutomatically = false
             self?.locationManager.startMonitoringSignificantLocationChanges()
         }
+        
     }
 
     /**  
