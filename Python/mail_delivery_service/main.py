@@ -216,8 +216,10 @@ def userInterface():
                 print("\n------------------------------------------")
                 print(f"Package ID: {package.ID}")
                 print(f"Address: {package.address}")
-                print(f"Delivery Deadline: {package.deadline}")
+                print(f"City: {package.city}")
+                print(f"Zip Code: {package.zipcode}")
                 print(f"Weight: {package.weight}")
+                print(f"Delivery Deadline: {package.deadline}")
                 print(f"Status at {timeInput}: {status}")
                 print("------------------------------------------")
 
@@ -228,7 +230,7 @@ def userInterface():
         elif choice == '2':
             timeInput = input("Enter the time (HH:MM): ")
             inputTime = timeInputToTimeDelta(timeInput)
-            print("\n------------------------------------------")
+            print(f"\n--------------- {timeInput} DELIVERY STATUS ---------------------")
 
     		# Initialize an empty list to store the package information
             packageStatuses = []
