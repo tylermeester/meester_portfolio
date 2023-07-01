@@ -293,7 +293,7 @@ truck2 = Truck.Truck(16, 18, [2, 4, 5, 6, 7, 8, 9, 10, 11, 25, 28, 32, 33],
                      0.0, "4001 South 700 East", datetime.timedelta(hours=9, minutes=5))
 
 # Create truck 3 and manually add the necessary packages
-truck3 = Truck.Truck(16, 18, [3, 6, 12, 17, 18, 19, 21, 22, 23, 24, 26, 27, 35, 36, 38, 39], 
+truck3 = Truck.Truck(16, 18, [3, 12, 17, 18, 19, 21, 22, 23, 24, 26, 27, 35, 36, 38, 39], 
                      0.0, "4001 South 700 East", datetime.timedelta(hours=10, minutes=20))
 
 # Create the packageHashMap and load all of the package data into it
