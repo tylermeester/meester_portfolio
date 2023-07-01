@@ -98,7 +98,7 @@ def calculateDistance(x, y):
 def sortAndDeliver(truck):
     """
     This function is used to "sort and deliver" the packages in the truck. It starts with the current 
-    location of the truck and iteratively selects the closest undelivered package and adds to truck.packages 
+    location of the truck and iteratively selects the closest undelivered package and adds it to truck.packages 
     until all packages are 'delivered'. It updates the truck and package parameters accordingly. 
     Though not inputed, it relies on a packageHashMap with all packages to interact with.
 
