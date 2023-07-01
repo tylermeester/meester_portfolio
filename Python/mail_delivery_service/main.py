@@ -268,9 +268,9 @@ def userInterface():
             totalMileage = truck1.mileage + truck2.mileage + truck3.mileage
             print("\n-----------------------------------------------")
             print(f"Mileage of delivery truck 1: {round(truck1.mileage, 2)}")
-            print(f"Mileage of delivery truck 2: {truck2.mileage}")
-            print(f"Mileage of delivery truck 3: {truck3.mileage}")
-            print(f"Total mileage traveled by all trucks: {totalMileage} miles.")
+            print(f"Mileage of delivery truck 2: {round(truck2.mileage, 2)}")
+            print(f"Mileage of delivery truck 3: {round(truck3.mileage, 2)}")
+            print(f"Total mileage traveled by all trucks: {round(totalMileage, 2)} miles.")
             print("-----------------------------------------------")
 
 
@@ -294,7 +294,7 @@ truck2 = Truck.Truck(16, 18, [2, 4, 5, 6, 7, 8, 9, 10, 11, 25, 28, 32, 33],
 
 # Create truck 3 and manually add the necessary packages
 truck3 = Truck.Truck(16, 18, [3, 12, 17, 18, 19, 21, 22, 23, 24, 26, 27, 35, 36, 38, 39], 
-                     0.0, "4001 South 700 East", datetime.timedelta(hours=10, minutes=20))
+                     0.0, "4001 South 700 East", datetime.timedelta(hours=10, minutes=30))
 
 # Create the packageHashMap and load all of the package data into it
 packageHashMap = HashMap()
