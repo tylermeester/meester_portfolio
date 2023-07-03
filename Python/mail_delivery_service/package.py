@@ -52,9 +52,9 @@ class Package:
         if self.deliveryTime < timedelta:
             self.status = "Delivered"
         elif self.departureTime > timedelta:
-            self.status = "On the way"
+            self.status = "En route"
         else:
-            self.status = "Awaiting pickup by delivery truck"
+            self.status = "At hub"
             
     def statusCheck(self, inputTime):
         """

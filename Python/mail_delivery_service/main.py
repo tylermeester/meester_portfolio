@@ -190,7 +190,7 @@ def displayAllPackageStatuses(packageHashMap):
     print("\n--------- Package Delivery Times -----------")
     for item in packageHashMap:
         package = packageHashMap.lookup(item)
-        print(f"   Package ID: {package.ID}, Delivery Time: {package.deliveryTime}")
+        print(f"   Package ID: {package.ID}, Address: {package.address}, Deadline: {package.deadline}, City: {package.city}, Zip Code: {package.zipcode}, Weight: {package.weight}, Delivery Time: {package.deliveryTime}")
 
 def userInterface():
     while True:
@@ -216,10 +216,10 @@ def userInterface():
                 print("\n------------------------------------------")
                 print(f"Package ID: {package.ID}")
                 print(f"Address: {package.address}")
+                print(f"Delivery Deadline: {package.deadline}")
                 print(f"City: {package.city}")
                 print(f"Zip Code: {package.zipcode}")
                 print(f"Weight: {package.weight}")
-                print(f"Delivery Deadline: {package.deadline}")
                 print(f"Status at {timeInput}: {status}")
                 print("------------------------------------------")
 
@@ -242,8 +242,9 @@ def userInterface():
                 if package is not None:
                     status = package.statusCheck(inputTime)
                     # Append package info to list
-                    packageStatuses.append(f"Package ID: {package.ID}, Deadline: {package.deadline}, Status: {status}")
-        
+                    packageStatuses.append(f"Package ID: {package.ID}, Address: {package.address}, Deadline: {package.deadline}, City: {package.city}, Zip Code: {package.zipcode}, Weight: {package.weight}, Status: {status}")
+                    
+
                 
             # Define your sorting function
             def sort_status(status):
@@ -289,12 +290,12 @@ truck1 = Truck.Truck(16, 18, [1, 13, 14, 15, 16, 20, 29, 30, 31, 34, 37, 40],
                      0.0, "4001 South 700 East", datetime.timedelta(hours=8))
 
 # Create truck 2 and manually add the necessary packages
-truck2 = Truck.Truck(16, 18, [2, 4, 5, 6, 7, 8, 9, 10, 11, 25, 28, 32, 33], 
+truck2 = Truck.Truck(16, 18, [2, 4, 5, 6, 7, 8, 10, 11, 25, 28, 32, 33], 
                      0.0, "4001 South 700 East", datetime.timedelta(hours=9, minutes=5))
 
 # Create truck 3 and manually add the necessary packages
-truck3 = Truck.Truck(16, 18, [3, 12, 17, 18, 19, 21, 22, 23, 24, 26, 27, 35, 36, 38, 39], 
-                     0.0, "4001 South 700 East", datetime.timedelta(hours=10, minutes=30))
+truck3 = Truck.Truck(16, 18, [3, 9, 12, 17, 18, 19, 21, 22, 23, 24, 26, 27, 35, 36, 38, 39], 
+                     0.0, "4001 South 700 East", datetime.timedelta(hours=10, minutes=20))
 
 # Create the packageHashMap and load all of the package data into it
 packageHashMap = HashMap()
@@ -304,8 +305,15 @@ loadPackageData("csv_files/Package.csv", packageHashMap)
 sortAndDeliver(truck1)
 sortAndDeliver(truck2)
 
-# Ensure that truck 3 does not leave until either of the first two trucks finish
-truck3.departureTime = min(truck1.time, truck2.time)
+# Ensure that truck 3 does not leave until either of the first two trucks finish and package #9 has the correct address
+
+truck3.departureTime = datetime.timedelta(hours=10, minutes=20)
+
+updatedPackage = Package(9, "410 S State St", "Salt Lake City", "UT", "84103", "EOD", "2 Kilos", "At hub")
+packageHashMap.update(9, updatedPackage)
+
+
+#9,300 State St,Salt Lake City,UT,84103,EOD,2 Kilos,'Wrong address listed',,,,,
 sortAndDeliver(truck3)
 
 ##########################################

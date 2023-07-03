@@ -87,6 +87,28 @@ class HashMap:
                 return pair[1]
 
         return None
+    
+    def update(self, key, item):
+        """
+		Updates an item in the hash table using a given key.
+
+		Args:
+			key: The key for the item.
+			item: The new item to replace the old item.
+
+		Returns:
+			True if the update was successful, False otherwise.
+		"""
+        bucket = hash(key) % len(self.list)
+        bucket_list = self.list[bucket]
+
+        for pair in bucket_list:
+        	if key == pair[0]:
+                 pair[1] = item
+                 return True
+
+        return False
+
 
     def remove(self, key):
         """
