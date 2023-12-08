@@ -1,0 +1,13 @@
+import os
+import openai
+
+# Print out the value of the environment variable
+print(os.getenv('OPENAI_API_KEY'))
+
+# Set the API key for the openai module
+openai.api_key = os.getenv('OPENAI_API_KEY')
+api_key = os.getenv('OPENAI_API_KEY')
+
+print(api_key)
+
+# ... rest of your code ...
