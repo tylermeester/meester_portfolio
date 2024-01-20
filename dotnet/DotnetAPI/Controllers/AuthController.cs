@@ -3,14 +3,18 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using Dapper;
 using DotnetAPI.Data;
 using DotnetAPI.DTOs;
 using DotnetAPI.Helpers;
+using DotnetAPI.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Forms.Mapping;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
+using AutoMapper;
 
 namespace DotnetAPI.Controllers
 {
@@ -25,11 +29,20 @@ namespace DotnetAPI.Controllers
         -------------------------------------------------------------------------------*/
         private readonly DataContextDapper _dapper;
         private readonly AuthHelper _authHelper;
+        private readonly ResuableSql _reusableSql;
+        private readonly IMapper _mapper;
+
 
         public AuthController(IConfiguration config)
         {
             _dapper = new DataContextDapper(config);
             _authHelper = new AuthHelper(config);
+            _reusableSql = new ResuableSql(config);
+            _mapper = new Mapper(new MapperConfiguration(cfg => 
+            {
+                cfg.CreateMap<UserForRegistrationDTO, UserComplete>();
+            }));
+
         }
 
 
@@ -55,53 +68,23 @@ namespace DotnetAPI.Controllers
                 // Check if the email is not already in use
                 if (existingUsers.Count() == 0)
                 {
-                    // Generate a salt for hashing the password
-                    byte[] passwordSalt = new byte[128 / 8];
-                    using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+                    UserForLoginDTO userForSetPassword = new UserForLoginDTO()
                     {
-                        rng.GetNonZeroBytes(passwordSalt);
-                    }
-
-                    // Hash the password using PBKDF2
-                    byte[] passwordHash = _authHelper.GetPasswordHash(userForRegistration.Password, passwordSalt);
-
-                    // SQL query to insert the new user's credentials into the database
-                    string sqlAddAuth = @"
-                            INSERT INTO PortfolioProjectSchema.Auth ([Email],
-                            [PasswordHash],
-                            [PasswordSalt]) VALUES('" + userForRegistration.Email +
-                            "', @PasswordHash, @PasswordSalt)";
-
-                    // Prepare SQL parameters for secure insertion
-                    List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
-                    SqlParameter passwordSaltParameter = new SqlParameter("@PasswordSalt", SqlDbType.VarBinary);
-                    passwordSaltParameter.Value = passwordSalt;
-
-                    SqlParameter passwordHashParameter = new SqlParameter("@PasswordHash", SqlDbType.VarBinary);
-                    passwordHashParameter.Value = passwordHash;
-
-                    sqlParameters.Add(passwordSaltParameter);
-                    sqlParameters.Add(passwordHashParameter);
+                        Email = userForRegistration.Email,
+                        Password = userForRegistration.Password
+                    };
 
                     // Execute the SQL query and return OK if successful
-                    if (_dapper.ExecuteSqlWithParameters(sqlAddAuth, sqlParameters))
+                    if (_authHelper.SetPassword(userForSetPassword))
                     {
-                        string sqlAddUser = @"
-                            INSERT INTO PortfolioProjectSchema.Users(
-                                [FirstName],
-                                [LastName],
-                                [Email],
-                                [Gender],
-                                [Active]
-                            )  VALUES (" +
-                                "'" + userForRegistration.FirstName +
-                                "', '" + userForRegistration.LastName +
-                                "', '" + userForRegistration.Email +
-                                "', '" + userForRegistration.Gender +
-                                "', 1)";
 
-                        if(_dapper.ExecuteSql(sqlAddUser)){
+                        UserComplete userComplete = _mapper.Map<UserComplete>(userForRegistration);
+                        
+                        //Because active is not in the UserForRegistrationDTO we set it manually
+                        userComplete.Active = true; 
+
+                        if (_reusableSql.UpsertUser(userComplete))
+                        {
                             return Ok();
                         }
                         throw new Exception("Failed to register user.");
@@ -120,6 +103,20 @@ namespace DotnetAPI.Controllers
             throw new Exception("Passwords do not match!");
         }
 
+        /*------------------------------------------------------------------------------
+        ------------------------------- RESET PASSWORD ---------------------------------
+        -------------------------------------------------------------------------------*/
+        [HttpPut("ResetPassword")]
+        public IActionResult ResetPassword(UserForLoginDTO userForSetPassword)
+        {
+            if (_authHelper.SetPassword(userForSetPassword))
+            {
+                return Ok();
+            }
+
+            throw new Exception("Failed to update password!");
+        }
+
 
         /*------------------------------------------------------------------------------
         ---------------------------------- USER LOGIN ----------------------------------
@@ -129,15 +126,22 @@ namespace DotnetAPI.Controllers
         public IActionResult Login(UserForLoginDTO userForLogin)
         {
             // SQL query to retrieve the stored password hash and salt for the given email
-            string sqlForHashAndSalt = @"SELECT
-                [PasswordHash],
-                [PasswordSalt] FROM PortfolioProjectSchema.Auth WHERE Email ='" +
-                userForLogin.Email + "'";
+            string sqlForHashAndSalt = @"EXEC PortfolioProjectSchema.spLoginConfirmation_Get 
+                @Email = @EmailParam";
+
+            DynamicParameters sqlParameters = new DynamicParameters();
+
+            // SqlParameter emailParameter = new SqlParameter("@EmailParam", SqlDbType.VarChar);
+            // emailParameter.Value = userForLogin.Email;
+            // sqlParameters.Add(emailParameter);
+
+            sqlParameters.Add("@EmailParam", userForLogin.Email, DbType.String);
+
 
             // Execute the SQL query to get the user's hashed password and salt
             // UserForLoginConfirmationDTO is expected to hold PasswordHash and PasswordSalt
             UserForLoginConfirmationDTO userForLoginConfirmation = _dapper
-                .LoadDataSingle<UserForLoginConfirmationDTO>(sqlForHashAndSalt);
+                .LoadDataSingleWithParameters<UserForLoginConfirmationDTO>(sqlForHashAndSalt, sqlParameters);
 
             // Hash the provided password using the same salt that was used to hash the stored password
             byte[] passwordHash = _authHelper.GetPasswordHash(userForLogin.Password, userForLoginConfirmation.PasswordSalt);
@@ -168,16 +172,21 @@ namespace DotnetAPI.Controllers
             });
         }
 
+        /*------------------------------------------------------------------------------
+        -------------------------------- REFRESH TOKEN ---------------------------------
+        -------------------------------------------------------------------------------*/
+
         [HttpGet("RefreshToken")]
-        public string RefreshToken(){
+        public string RefreshToken()
+        {
             string userIdSql = @"
                 SELECT UserId
                 FROM PortfolioProjectSchema.Users
                 WHERE UserId = '" + User.FindFirst("userId")?.Value + "'";
 
-                int userId = _dapper.LoadDataSingle<int>(userIdSql);
+            int userId = _dapper.LoadDataSingle<int>(userIdSql);
 
-                return _authHelper.CreateToken(userId);
+            return _authHelper.CreateToken(userId);
         }
 
 

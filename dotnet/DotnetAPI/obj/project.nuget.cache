@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "vnWDWKzKhA2NXjCIrkGIto59dc/BnHA9BmdUrwuXpiNzqxVeCwLDPWMzWcoKx3fDuuqIJAP09kSgSk7Ra1wSEg==",
+  "dgSpecHash": "gqqAYsUDzps1Kj6PmIQeVUZ3Ucy5cM1OrWwVfC/4qggOiXujXBCAgrc9yYXNTXeyUFsoOt5/Cz8paUiUwP18XQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\tyler\\OneDrive\\Documents\\meester_portfolio\\dotnet\\DotnetAPI\\DotnetAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tyler\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\tyler\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\tyler\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\tyler\\.nuget\\packages\\dapper\\2.1.28\\dapper.2.1.28.nupkg.sha512",
     "C:\\Users\\tyler\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.1\\microsoft.aspnetcore.authentication.jwtbearer.8.0.1.nupkg.sha512",
     "C:\\Users\\tyler\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.1\\microsoft.aspnetcore.openapi.8.0.1.nupkg.sha512",
     "C:\\Users\\tyler\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "C:\\Users\\tyler\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\tyler\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.4\\microsoft.data.sqlclient.5.1.4.nupkg.sha512",
     "C:\\Users\\tyler\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.1\\microsoft.data.sqlclient.sni.runtime.5.1.1.nupkg.sha512",
     "C:\\Users\\tyler\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

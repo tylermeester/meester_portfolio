@@ -1,8 +1,13 @@
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
+using Dapper;
 using DotnetAPI.Data;
+using DotnetAPI.DTOs;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 
 namespace DotnetAPI.Helpers
@@ -11,11 +16,15 @@ namespace DotnetAPI.Helpers
 
     public class AuthHelper
     {
+        /*------------------------------------------------------------------------------
+        ------------------------- DAPPER DATABASE CONNECTION  --------------------------
+        -------------------------------------------------------------------------------*/
 
         private readonly IConfiguration _config;
-
+        private readonly DataContextDapper _dapper;
         public AuthHelper(IConfiguration config)
         {
+            _dapper = new DataContextDapper(config);
             _config = config;
         }
 
@@ -92,11 +101,36 @@ namespace DotnetAPI.Helpers
         }
 
 
+        public bool SetPassword(UserForLoginDTO userForSetPassword)
+        {
 
+            // Generate a salt for hashing the password
+            byte[] passwordSalt = new byte[128 / 8];
+            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+            {
+                rng.GetNonZeroBytes(passwordSalt);
+            }
+
+            // Hash the password using PBKDF2
+            byte[] passwordHash = GetPasswordHash(userForSetPassword.Password, passwordSalt);
+
+            // SQL query to insert the new user's credentials into the database
+            string sqlAddAuth = @"EXEC PortfolioProjectSchema.spRegistration_Upsert
+                            @Email = @EmailParam, 
+                            @PasswordHash = @PasswordHashParam, 
+                            @PasswordSalt = @PasswordSaltParam";
+
+            DynamicParameters sqlParameters = new DynamicParameters();
+
+            sqlParameters.Add("@EmailParam", userForSetPassword.Email, DbType.String);
+            sqlParameters.Add("@PasswordHashParam", passwordHash, DbType.Binary);
+            sqlParameters.Add("@PasswordSaltParam", passwordSalt, DbType.Binary);
+
+
+            // Execute the SQL query and return OK if successful
+            return _dapper.ExecuteSqlWithParameters(sqlAddAuth, sqlParameters);
+         
+
+        }
     }
-
-
-
-
-
 }

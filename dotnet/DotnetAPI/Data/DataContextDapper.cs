@@ -53,29 +53,53 @@ namespace DotnetAPI.Data
         }
 
 
-        public bool ExecuteSqlWithParameters(string sql, List<SqlParameter> parameters)
+        public bool ExecuteSqlWithParameters(string sql, DynamicParameters parameters)
         {
 
-            SqlCommand commandWithParams = new SqlCommand(sql);
-
-            foreach(SqlParameter parameter in parameters){
-                commandWithParams.Parameters.Add(parameter);
-            }
-
-            // Creating and opening a database connection
-            SqlConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            dbConnection.Open();
-
-            commandWithParams.Connection = dbConnection;
-
-            int rowsAffected = commandWithParams.ExecuteNonQuery();
-
-            dbConnection.Close();
+            IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            return dbConnection.Execute(sql, parameters) > 0;
 
 
 
-            // Executing the SQL command and returning the count of affected rows
-            return rowsAffected > 0;
+            // SqlCommand commandWithParams = new SqlCommand(sql);
+
+            // foreach(SqlParameter parameter in parameters){
+            //     commandWithParams.Parameters.Add(parameter);
+            // }
+
+            // // Creating and opening a database connection
+            // SqlConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            // dbConnection.Open();
+
+            // commandWithParams.Connection = dbConnection;
+
+            // int rowsAffected = commandWithParams.ExecuteNonQuery();
+
+            // dbConnection.Close();
+
+
+
+            // // Executing the SQL command and returning the count of affected rows
+            // return rowsAffected > 0;
+        }
+
+
+        
+        public IEnumerable<T> LoadDataWithParameters<T>(string sql, DynamicParameters parameters)
+        {
+            // Creating a database connection using the connection string from app settings
+            IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            // Executing the SQL query using Dapper's Query method and returning the result
+            return dbConnection.Query<T>(sql, parameters);
+        }
+
+        // Generic method to load a single record from the database
+        public T LoadDataSingleWithParameters<T>(string sql,  DynamicParameters parameters)
+        {
+            // Creating a database connection
+            IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            // Executing the SQL query and returning a single record
+            return dbConnection.QuerySingle<T>(sql, parameters);
         }
     }
 }
