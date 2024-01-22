@@ -69,3 +69,4 @@ C:\Users\tyler\OneDrive\Documents\meester_portfolio\dotnet\DotnetAPI\obj\Debug\n
 C:\Users\tyler\OneDrive\Documents\meester_portfolio\dotnet\DotnetAPI\obj\Debug\net8.0\ref\DotnetAPI.dll
 C:\Users\tyler\OneDrive\Documents\meester_portfolio\dotnet\DotnetAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\tyler\OneDrive\Documents\meester_portfolio\dotnet\DotnetAPI\bin\Debug\net8.0\Users.json
+C:\Users\tyler\OneDrive\Documents\meester_portfolio\dotnet\DotnetAPI\bin\Debug\net8.0\AutoMapper.dll

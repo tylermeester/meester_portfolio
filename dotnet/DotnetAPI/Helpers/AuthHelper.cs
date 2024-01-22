@@ -30,15 +30,23 @@ namespace DotnetAPI.Helpers
 
 
         /*------------------------------------------------------------------------------
-        ---------------------- PASSWORD HASH HELPER FUNCTION ---------------------------
+        ------------------------ PASSWORD HASH HELPER METHOD ---------------------------
         -------------------------------------------------------------------------------*/
+        /// <summary>
+        /// Generates a hashed password using PBKDF2 algorithm. It combines the provided password
+        /// with a salt and a predefined key from the configuration to create a secure hash.
+        /// </summary>
+        /// <param name="password">The plain-text password to be hashed.</param>
+        /// <param name="passwordSalt">The salt to be used in the hashing process.</param>
+        /// <returns>A byte array representing the hashed password.</returns>
         public byte[] GetPasswordHash(string password, byte[] passwordSalt)
         {
-            // Combine the salt with a predefined key from the configuration
+            // Combine the provided salt with a predefined key (PasswordKey) from the configuration
             string passwordSaltPlusString = _config.GetSection("AppSettings:PasswordKey").Value +
                 Convert.ToBase64String(passwordSalt);
 
-            // Hash the password using PBKDF2
+            // Hash the password using the PBKDF2 algorithm with HMACSHA256 as the pseudo-random function
+            // The combination of password, salt, and iteration count increases the security of the hash
             byte[] passwordHash = KeyDerivation.Pbkdf2(
                 password: password,
                 salt: Encoding.ASCII.GetBytes(passwordSaltPlusString),
@@ -47,90 +55,93 @@ namespace DotnetAPI.Helpers
                 numBytesRequested: 256 / 8
             );
 
+            // Return the computed hash as a byte array
             return passwordHash;
         }
 
 
+
         /*------------------------------------------------------------------------------
-        ----------------------------- JWT HELPER FUNCTION ------------------------------
+        ------------------------------ JWT HELPER METHOD -------------------------------
         -------------------------------------------------------------------------------*/
+        /// <summary>
+        /// Creates a JSON Web Token (JWT) for a given user ID. The token is signed and contains
+        /// claims about the user, ensuring secure and authenticated access.
+        /// </summary>
+        /// <param name="userId">The user ID for which the token is being created.</param>
+        /// <returns>A JWT as a string.</returns>
         public string CreateToken(int userId)
         {
-            // Creating claims for the token. A claim is a statement about the user.
-            // Here, we're adding the user's ID as a claim.
+            // Define the claim to be included in the token - the user's ID
             Claim[] claims = new Claim[] {
                 new Claim("userId", userId.ToString())
             };
 
-            // Retrieving the token key from app settings, which is used for signing the token.
-            // The key is a secret string that helps ensure the token's integrity and security.
+            // Retrieve the secret key used for signing the token from app settings
             string? tokenKeyString = _config.GetSection("AppSettings:TokenKey").Value;
 
-            // Generating a symmetric security key from the token key string.
-            // This key will be used to sign the JWT, ensuring that it hasn't been tampered with.
-            SymmetricSecurityKey tokenKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(
-                        tokenKeyString != null ? tokenKeyString : ""
-                    )
-                );
+            // Generate a symmetric security key from the token key string
+            // This key is crucial for the integrity and security of the token
+            SymmetricSecurityKey tokenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKeyString ?? ""));
 
-            // Creating signing credentials with the security key and specifying the algorithm.
-            // HMACSHA512 is used for signing the token.
-            SigningCredentials credentials = new SigningCredentials(
-                tokenKey,
-                SecurityAlgorithms.HmacSha512Signature);
+            // Create signing credentials using the security key and the HMACSHA512 algorithm
+            SigningCredentials credentials = new SigningCredentials(tokenKey, SecurityAlgorithms.HmacSha512Signature);
 
-            // Defining the token's properties using a SecurityTokenDescriptor.
-            // It includes the claims, signing credentials, and the token's expiry.
+            // Define the token properties including the subject, signing credentials, and expiration time
             SecurityTokenDescriptor descriptor = new SecurityTokenDescriptor()
             {
-
                 Subject = new ClaimsIdentity(claims),
                 SigningCredentials = credentials,
-                Expires = DateTime.Now.AddDays(1) // Token will expire in 1 day
+                Expires = DateTime.Now.AddDays(1) // The token will expire in 1 day
             };
 
-            // Creating a token handler - an object used to create and validate JWT tokens.
+            // Create a token handler to generate the JWT
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
 
-            // Creating the token based on the descriptor's properties.
+            // Create the token based on the defined properties
             SecurityToken token = tokenHandler.CreateToken(descriptor);
 
-            // Returning the serialized token as a string.
+            // Serialize the token to a string and return it
             return tokenHandler.WriteToken(token);
         }
 
 
+        /*------------------------------------------------------------------------------
+        --------------------------------- SET PASSWORD ---------------------------------
+        -------------------------------------------------------------------------------*/
+        /// <summary>
+        /// Sets or updates the password for a given user. This method generates a new password hash and salt,
+        /// and updates these credentials in the database.
+        /// </summary>
+        /// <param name="userForSetPassword">User data including the email and new password.</param>
+        /// <returns>Boolean indicating the success or failure of the operation.</returns>
         public bool SetPassword(UserForLoginDTO userForSetPassword)
         {
-
-            // Generate a salt for hashing the password
+            // Generate a salt for the password hashing process
             byte[] passwordSalt = new byte[128 / 8];
             using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
             {
                 rng.GetNonZeroBytes(passwordSalt);
             }
 
-            // Hash the password using PBKDF2
+            // Hash the new password using the generated salt
             byte[] passwordHash = GetPasswordHash(userForSetPassword.Password, passwordSalt);
 
-            // SQL query to insert the new user's credentials into the database
+            // Prepare the SQL query to upsert the user's authentication data in the database
             string sqlAddAuth = @"EXEC PortfolioProjectSchema.spRegistration_Upsert
-                            @Email = @EmailParam, 
-                            @PasswordHash = @PasswordHashParam, 
-                            @PasswordSalt = @PasswordSaltParam";
+                                @Email = @EmailParam, 
+                                @PasswordHash = @PasswordHashParam, 
+                                @PasswordSalt = @PasswordSaltParam";
 
+            // Set up dynamic parameters for the SQL query
             DynamicParameters sqlParameters = new DynamicParameters();
-
             sqlParameters.Add("@EmailParam", userForSetPassword.Email, DbType.String);
             sqlParameters.Add("@PasswordHashParam", passwordHash, DbType.Binary);
             sqlParameters.Add("@PasswordSaltParam", passwordSalt, DbType.Binary);
 
-
-            // Execute the SQL query and return OK if successful
+            // Execute the SQL query with parameters and return the result
             return _dapper.ExecuteSqlWithParameters(sqlAddAuth, sqlParameters);
-         
-
         }
+
     }
 }
