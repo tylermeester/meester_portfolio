@@ -13,17 +13,16 @@ namespace DotnetAPI.Controllers
     [Route("[controller]")]
     public class PostController : ControllerBase
     {
-
         /*------------------------------------------------------------------------------
-        ------------------------- DAPPER DATABASE CONNECTION  --------------------------
+        ----------------- DAPPER DATABASE CONNECTION AND CONSTRUCTOR -------------------
         -------------------------------------------------------------------------------*/
-
         private readonly DataContextDapper _dapper;
 
         public PostController(IConfiguration config)
         {
             _dapper = new DataContextDapper(config);
         }
+
 
         /*------------------------------------------------------------------------------
         ----------------------------------- GET POSTS ----------------------------------

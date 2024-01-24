@@ -6,12 +6,16 @@ namespace DotnetAPI.Data
 {
     class DataContextDapper
     {
+        /*------------------------------------------------------------------------------
+        ----------------- DAPPER DATABASE CONNECTION AND CONSTRUCTOR -------------------
+        -------------------------------------------------------------------------------*/
         private readonly IConfiguration _config;
 
         public DataContextDapper(IConfiguration config)
         {
             _config = config; 
         }
+
 
         /*------------------------------------------------------------------------------
         --------------------------- LOAD DATA GENERIC METHOD ---------------------------

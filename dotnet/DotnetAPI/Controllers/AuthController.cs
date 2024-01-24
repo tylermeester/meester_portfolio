@@ -23,15 +23,13 @@ namespace DotnetAPI.Controllers
     [Route("[controller]")]
     public class AuthController : ControllerBase
     {
-
         /*------------------------------------------------------------------------------
-        ------------------------- DAPPER DATABASE CONNECTION  --------------------------
+        ----------------- DAPPER DATABASE CONNECTION AND CONSTRUCTOR -------------------
         -------------------------------------------------------------------------------*/
         private readonly DataContextDapper _dapper;
         private readonly AuthHelper _authHelper;
         private readonly ResuableSql _reusableSql;
         private readonly IMapper _mapper;
-
         public AuthController(IConfiguration config)
         {
             _dapper = new DataContextDapper(config);
@@ -41,7 +39,6 @@ namespace DotnetAPI.Controllers
             {
                 cfg.CreateMap<UserForRegistrationDTO, UserComplete>();
             }));
-
         }
 
 
@@ -126,7 +123,6 @@ namespace DotnetAPI.Controllers
         }
 
 
-
         /*------------------------------------------------------------------------------
         ---------------------------------- USER LOGIN ----------------------------------
         -------------------------------------------------------------------------------*/
@@ -197,7 +193,5 @@ namespace DotnetAPI.Controllers
             // Generate and return a new JWT token using the user's ID
             return _authHelper.CreateToken(userId);
         }
-
-
     }
 }

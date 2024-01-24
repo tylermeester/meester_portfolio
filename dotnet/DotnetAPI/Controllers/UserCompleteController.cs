@@ -15,15 +15,11 @@ namespace DotnetAPI.Controllers;
 [Route("[controller]")]
 public class UserCompleteController : ControllerBase
 {
-
     /*------------------------------------------------------------------------------
-    ------------------------- DAPPER DATABASE CONNECTION  --------------------------
+    ----------------- DAPPER DATABASE CONNECTION AND CONSTRUCTOR -------------------
     -------------------------------------------------------------------------------*/
-
     private readonly DataContextDapper _dapper;
-
     private readonly ResuableSql _reusableSql;
-
     public UserCompleteController(IConfiguration config)
     {
         _dapper = new DataContextDapper(config);

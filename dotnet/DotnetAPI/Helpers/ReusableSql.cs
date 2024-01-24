@@ -5,18 +5,18 @@ using DotnetAPI.Models;
 
 namespace DotnetAPI.Helpers
 {
-
-
     public class ResuableSql
     {
-
+        /*------------------------------------------------------------------------------
+        ----------------- DAPPER DATABASE CONNECTION AND CONSTRUCTOR -------------------
+        -------------------------------------------------------------------------------*/
         private readonly DataContextDapper _dapper;
-
 
         public ResuableSql(IConfiguration config)
         {
             _dapper = new DataContextDapper(config);
         }
+
 
         /*------------------------------------------------------------------------------
         -------------------------------- UPSERT USER -----------------------------------

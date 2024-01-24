@@ -12,16 +12,14 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace DotnetAPI.Helpers
 {
-
-
     public class AuthHelper
     {
         /*------------------------------------------------------------------------------
-        ------------------------- DAPPER DATABASE CONNECTION  --------------------------
+        ----------------- DAPPER DATABASE CONNECTION AND CONSTRUCTOR -------------------
         -------------------------------------------------------------------------------*/
-
         private readonly IConfiguration _config;
         private readonly DataContextDapper _dapper;
+        
         public AuthHelper(IConfiguration config)
         {
             _dapper = new DataContextDapper(config);
@@ -58,7 +56,6 @@ namespace DotnetAPI.Helpers
             // Return the computed hash as a byte array
             return passwordHash;
         }
-
 
 
         /*------------------------------------------------------------------------------
@@ -142,6 +139,5 @@ namespace DotnetAPI.Helpers
             // Execute the SQL query with parameters and return the result
             return _dapper.ExecuteSqlWithParameters(sqlAddAuth, sqlParameters);
         }
-
     }
 }
