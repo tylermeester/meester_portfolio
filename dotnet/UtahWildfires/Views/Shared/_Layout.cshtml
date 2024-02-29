@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UtahWildfires</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/app/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/app/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/app/admin/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/app/admin/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="~/app/plugins/bootstrap-wysihtml15/bootstrap3-wysihtml15.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,600italic">
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- logo -->
+            <a class="logo" href="#" style="background: #1e282c;">
+                <span class="logo-mini"><b>W</b>W</span>
+                <span class="logo-lg"><b style="color:red">UTAH</b>WILDFIRES</span>
+            </a>
+            
+        </header>
+        <aside class="main-sidebar">
+                    <!-- sidebar: style can be found in sidebar.less -->
+                    <section class="sidebar">
+                    
+                        <!-- sidebar menu: : style can be found in sidebar.less -->
+                        <ul class="sidebar-menu" data-widget="tree">
+                            <li class="header">NAVIGATION</li>
+                            <li class="treeview active">
+                            <a href="#">
+                                <i class="fa fa-globe"></i> <span>Maps</span>
+                                <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-map"></i> Wildfires </a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <!-- /.sidebar -->
+        </aside>
+
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+
+            <!-- Main content -->
+            <section class="content-fluid">
+                @RenderBody()
+            </section>
+            <!-- /.content -->
+        </div>
+
+    </div>
+    <!-- end of wrapper -->
+
+    <!-- Scripts -->
+        <script src="~/app/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+        $.widget.bridge('uibutton', $.ui.button);
+        </script>
+        <script th:src="~/app/bootstrap/dist/js/bootstrap.min.js}"></script>
+        <script th:src="~/app/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js}"></script>
+        <script th:src="~/app/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
+        <script th:src="~/app/fastclick/lib/fastclick.js}"></script>
+        <script th:src="~/app/dist/js/adminlte.min.js}"></script>
+        <script th:src="~/app/dist/js/demo.js}"></script> 
+        
+        @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
